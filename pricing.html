@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | BIM Automation Studio</title>
+    <meta name="description" content="Transparent, per-seat pricing for PyRevit and MCP automation tools. No hidden fees. Start with as few as 1 seat.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Pricing Page Specific Styles ── */
+
+        .pricing-hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 5rem 0 4rem;
+            text-align: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── How It Works ── */
+        .how-it-works {
+            background: var(--light-bg);
+            padding: 4rem 0;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .how-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 1.75rem;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+
+        .how-item .how-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .how-item h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .how-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ── Product Sections ── */
+        .products {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .products .section-intro {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .product-block {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .product-block.bundle {
+            border-left-color: var(--accent-color);
+        }
+
+        .product-header {
+            padding: 2rem 2.5rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .product-header h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+        }
+
+        .product-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            max-width: 500px;
+        }
+
+        .product-base-price {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .product-base-price .price-amount {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .product-base-price .price-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .product-body {
+            padding: 2rem 2.5rem;
+        }
+
+        .product-includes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .product-includes {
+                grid-template-columns: 1fr;
+            }
+            .product-header {
+                flex-direction: column;
+            }
+            .product-base-price {
+                text-align: left;
+            }
+        }
+
+        .includes-col h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .includes-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .includes-col ul li {
+            padding: 0.35rem 0;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.92rem;
+            color: var(--text-dark);
+        }
+
+        .includes-col ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .bundle .includes-col ul li:before {
+            color: var(--accent-color);
+        }
+
+        /* Example tiers table */
+        .tier-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .tier-table th {
+            background: var(--light-bg);
+            padding: 0.6rem 1rem;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+        }
+
+        .tier-table td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--text-dark);
+        }
+
+        .tier-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tier-table .discount-badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+        }
+
+        .tier-note {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 0.75rem;
+            font-style: italic;
+        }
+
+        /* ── Example Packages ── */
+        .examples {
+            background: var(--light-bg);
+            padding: 5rem 0;
+        }
+
+        .examples h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .examples .section-intro {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .example-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .example-card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .example-card-header.bundle-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+
+        .example-card-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .example-card-header .firm-size {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .example-card-body {
+            padding: 1.5rem;
+        }
+
+        .example-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 0.9rem;
+        }
+
+        .example-line:last-of-type {
+            border-bottom: none;
+        }
+
+        .example-line .label {
+            color: var(--text-light);
+        }
+
+        .example-line .value {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .example-total {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--light-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .example-total .total-label {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .example-total .total-amount {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* ── Implementation ── */
+        .implementation {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .implementation h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .implementation .section-intro {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .impl-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .impl-card {
+            border: 2px solid var(--light-bg);
+            border-radius: 10px;
+            padding: 1.75rem;
+        }
+
+        .impl-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .impl-card .impl-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .impl-card .impl-price span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .impl-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .impl-card ul li {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+
+        .impl-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+
+        .impl-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .badge-optional { background: #e3f2fd; color: #1565c0; }
+        .badge-required { background: #fce4ec; color: #b71c1c; }
+
+        /* ── Annual Savings Banner ── */
+        .annual-banner {
+            background: linear-gradient(135deg, var(--dark-bg), var(--primary-color));
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .annual-banner h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .annual-banner p {
+            opacity: 0.9;
+            font-size: 1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .annual-banner .annual-highlight {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            margin: 1rem 0;
+        }
+
+        /* ── Contact Form Section ── */
+        .contact-form-section {
+            padding: 5rem 0;
+            background: var(--light-bg);
+        }
+
+        .contact-form-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-section .section-intro {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .form-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 7px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        @media (max-width: 500px) {
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 7px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--secondary-color);
+            background: #f0fafa;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            accent-color: var(--secondary-color);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .checkbox-item.checked {
+            border-color: var(--secondary-color);
+            background: #e8f7f8;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 7px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-family: inherit;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        /* Success message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .form-success .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-success h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            color: var(--text-light);
+        }
+
+        /* Volume discount callout */
+        .volume-callout {
+            background: #e8f4fd;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .volume-callout strong {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="BIM Automation Studio Logo" class="logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#demos">Demos</a>
+                <a href="pricing.html" style="color: var(--secondary-color); font-weight: 700;">Pricing</a>
+                <a href="#get-in-touch" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1>Simple, Transparent Pricing</h1>
+            <p>Per-seat subscriptions with no hidden fees. Start small, scale when you're ready. Cancel anytime with 30 days notice.</p>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How Pricing Works</h2>
+            <div class="how-grid">
+                <div class="how-item">
+                    <div class="how-icon">👤</div>
+                    <h3>Per Seat</h3>
+                    <p>Pay only for the users who need access. No minimums — start with as few as 1 seat.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">📉</div>
+                    <h3>Volume Discounts</h3>
+                    <p>Price per seat drops automatically as your team grows. Discounts up to 25% for larger teams.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">🔧</div>
+                    <h3>Pay for What You Use</h3>
+                    <p>Base packages include core tools. Add more buttons or tools only if you need them.</p>
+                </div>
+                <div class="how-item">
+                    <div class="how-icon">📅</div>
+                    <h3>Monthly or Annual</h3>
+                    <p>Month-to-month flexibility or save 16.67% by paying annually (equivalent to 2 months free).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="container">
+            <h2>Choose Your Tools</h2>
+            <p class="section-intro">Use one or both — bundle them together to save an additional 10%.</p>
+
+            <!-- PyRevit -->
+            <div class="product-block">
+                <div class="product-header">
+                    <div>
+                        <h3>🔧 PyRevit Automation</h3>
+                        <p>One-click Python-powered buttons built directly into your Revit ribbon. Perfect for repetitive tasks your team does every day.</p>
+                    </div>
+                    <div class="product-base-price">
+                        <div class="price-amount">$50</div>
+                        <div class="price-label">per seat / month<br>base price</div>
+                    </div>
+                </div>
+                <div class="product-body">
+                    <div class="product-includes">
+                        <div class="includes-col">
+                            <h4>Base Includes</h4>
+                            <ul>
+                                <li>Up to 5 custom buttons</li>
+                                <li>Bulk parameter updates</li>
+                                <li>Auto-relabeling tools</li>
+                                <li>Standards compliance checks</li>
+                                <li>Email support</li>
+                            </ul>
+                        </div>
+                        <div class="includes-col">
+                            <h4>Add More Buttons</h4>
+                            <ul>
+                                <li>+$5 / seat / month per button</li>
+                                <li>Simple buttons: $800–$1,500 dev</li>
+                                <li>Moderate: $1,500–$3,000 dev</li>
+                                <li>Complex: $3,000–$5,000 dev</li>
+                                <li>Custom scope reviewed per project</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <table class="tier-table">
+                        <thead>
+                            <tr>
+                                <th>Team Size</th>
+                                <th>Price per Seat / Month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1–5 seats</td><td>$50.00</td></tr>
+                            <tr><td>6–15 seats</td><td>$46.00 <span class="discount-badge">8% off</span></td></tr>
+                            <tr><td>16–30 seats</td><td>$44.00 <span class="discount-badge">12% off</span></td></tr>
+                            <tr><td>31–75 seats</td><td>$41.00 <span class="discount-badge">18% off</span></td></tr>
+                            <tr><td>76+ seats</td><td>$37.50 <span class="discount-badge">25% off</span></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="tier-note">* Prices shown for base package (5 buttons). Additional buttons add $5/seat/month each, discounted at the same volume tier.</p>
+                </div>
+            </div>
+
+            <!-- MCP -->
+            <div class="product-block">
+                <div class="product-header">
+                    <div>
+                        <h3>🤖 AI-Powered MCP Tools</h3>
+                        <p>Control Revit with natural language through Claude AI. Ideal for conditional logic, complex queries, and tasks where starting values vary each time.</p>
+                    </div>
+                    <div class="product-base-price">
+                        <div class="price-amount">$60</div>
+                        <div class="price-label">per seat / month<br>base price</div>
+                    </div>
+                </div>
+                <div class="product-body">
+                    <div class="product-includes">
+                        <div class="includes-col">
+                            <h4>Base Includes</h4>
+                            <ul>
+                                <li>5 simple read-only tools</li>
+                                <li>Project info queries</li>
+                                <li>Element selection & counting</li>
+                                <li>Parameter inspection</li>
+                                <li>Email support</li>
+                            </ul>
+                        </div>
+                        <div class="includes-col">
+                            <h4>Add More Tools</h4>
+                            <ul>
+                                <li>Simple tools: +$5 / seat / month</li>
+                                <li>Moderate tools: +$10 / seat / month</li>
+                                <li>Complex tools: +$15 / seat / month</li>
+                                <li>Custom dev: $1,500–$8,000 per tool</li>
+                                <li>Scope reviewed per project</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <table class="tier-table">
+                        <thead>
+                            <tr>
+                                <th>Team Size</th>
+                                <th>Price per Seat / Month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1–5 seats</td><td>$60.00</td></tr>
+                            <tr><td>6–15 seats</td><td>$55.20 <span class="discount-badge">8% off</span></td></tr>
+                            <tr><td>16–30 seats</td><td>$52.80 <span class="discount-badge">12% off</span></td></tr>
+                            <tr><td>31–75 seats</td><td>$49.20 <span class="discount-badge">18% off</span></td></tr>
+                            <tr><td>76+ seats</td><td>$45.00 <span class="discount-badge">25% off</span></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="tier-note">* Prices shown for base package (5 simple tools). Additional tools billed at their tier rate, discounted at the same volume tier.</p>
+
+                    <div class="volume-callout">
+                        <strong>Note:</strong> MCP setup requires a one-time mandatory onboarding ($1,250) to ensure proper configuration of the MCP server, Claude Desktop, and tool connections. This is required for all MCP implementations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bundle -->
+            <div class="product-block bundle">
+                <div class="product-header">
+                    <div>
+                        <h3>⚡ Bundle: PyRevit + MCP</h3>
+                        <p>Get both products together and save an additional 10% on top of your volume discount. The most popular choice for teams that want full automation coverage.</p>
+                    </div>
+                    <div class="product-base-price">
+                        <div class="price-amount">$99</div>
+                        <div class="price-label">per seat / month<br>base bundle price</div>
+                    </div>
+                </div>
+                <div class="product-body">
+                    <div class="product-includes">
+                        <div class="includes-col">
+                            <h4>Everything in Both Products</h4>
+                            <ul>
+                                <li>5 PyRevit buttons included</li>
+                                <li>5 simple MCP tools included</li>
+                                <li>Add buttons or tools as needed</li>
+                                <li>One subscription, one invoice</li>
+                                <li>Email support for both</li>
+                            </ul>
+                        </div>
+                        <div class="includes-col">
+                            <h4>Bundle Savings</h4>
+                            <ul>
+                                <li>10% bundle discount applied</li>
+                                <li>Stacks on top of volume discounts</li>
+                                <li>Up to ~35% total discount possible</li>
+                                <li>Annual prepay saves another 16.67%</li>
+                                <li>Best value for full-team rollout</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <table class="tier-table">
+                        <thead>
+                            <tr>
+                                <th>Team Size</th>
+                                <th>Price per Seat / Month</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1–5 seats</td><td>$99.00 <span class="discount-badge">10% off</span></td></tr>
+                            <tr><td>6–15 seats</td><td>$91.08 <span class="discount-badge">17.2% off</span></td></tr>
+                            <tr><td>16–30 seats</td><td>$87.12 <span class="discount-badge">20.8% off</span></td></tr>
+                            <tr><td>31–75 seats</td><td>$81.18 <span class="discount-badge">26.2% off</span></td></tr>
+                            <tr><td>76+ seats</td><td>$74.25 <span class="discount-badge">32.5% off</span></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="tier-note">* Base bundle (5 PyRevit buttons + 5 simple MCP tools). Bundle discount applies to recurring subscription only, not implementation or custom development fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Packages -->
+    <section class="examples">
+        <div class="container">
+            <h2>Real-World Examples</h2>
+            <p class="section-intro">Here's what typical deployments look like. Every quote is customized — these are ballpark figures.</p>
+
+            <div class="examples-grid">
+                <!-- Small Firm -->
+                <div class="example-card">
+                    <div class="example-card-header">
+                        <h3>🏢 Small Firm</h3>
+                        <div class="firm-size">5 seats · PyRevit focus</div>
+                    </div>
+                    <div class="example-card-body">
+                        <div class="example-line">
+                            <span class="label">Seats</span>
+                            <span class="value">5</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">PyRevit (10 buttons)</span>
+                            <span class="value">$75/seat</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">Volume discount</span>
+                            <span class="value">None (1–5 tier)</span>
+                        </div>
+                        <div class="example-total">
+                            <span class="total-label">Monthly total</span>
+                            <span class="total-amount">$375/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medium Firm -->
+                <div class="example-card">
+                    <div class="example-card-header">
+                        <h3>🏗️ Medium Firm</h3>
+                        <div class="firm-size">15 seats · MCP + PyRevit</div>
+                    </div>
+                    <div class="example-card-body">
+                        <div class="example-line">
+                            <span class="label">Seats</span>
+                            <span class="value">15</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">Bundle base</span>
+                            <span class="value">$110/seat</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">Bundle + volume (8%)</span>
+                            <span class="value">$91.08/seat</span>
+                        </div>
+                        <div class="example-total">
+                            <span class="total-label">Monthly total</span>
+                            <span class="total-amount">$1,366/mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Larger Firm -->
+                <div class="example-card">
+                    <div class="example-card-header bundle-header">
+                        <h3>🏛️ Larger Firm</h3>
+                        <div class="firm-size">30 seats · Full bundle</div>
+                    </div>
+                    <div class="example-card-body">
+                        <div class="example-line">
+                            <span class="label">Seats</span>
+                            <span class="value">30</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">Bundle base</span>
+                            <span class="value">$110/seat</span>
+                        </div>
+                        <div class="example-line">
+                            <span class="label">Bundle + volume (12%)</span>
+                            <span class="value">$87.12/seat</span>
+                        </div>
+                        <div class="example-total">
+                            <span class="total-label">Monthly total</span>
+                            <span class="total-amount">$2,614/mo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation -->
+    <section class="implementation">
+        <div class="container">
+            <h2>Implementation & Onboarding</h2>
+            <p class="section-intro">One-time fees to get your team up and running. Same price regardless of seat count.</p>
+
+            <div class="impl-grid">
+                <div class="impl-card">
+                    <span class="impl-badge badge-optional">Optional</span>
+                    <h3>🔧 PyRevit Onboarding</h3>
+                    <div class="impl-price">$750 <span>one-time</span></div>
+                    <ul>
+                        <li>Installation instructions + validation</li>
+                        <li>Extension deployment guide</li>
+                        <li>60–90 min virtual training session</li>
+                        <li>Q&A and basic troubleshooting</li>
+                    </ul>
+                </div>
+
+                <div class="impl-card">
+                    <span class="impl-badge badge-required">Required</span>
+                    <h3>🤖 MCP Onboarding</h3>
+                    <div class="impl-price">$1,250 <span>one-time</span></div>
+                    <ul>
+                        <li>MCP server setup and validation</li>
+                        <li>Claude Desktop configuration</li>
+                        <li>Tool handshake verification</li>
+                        <li>End-to-end testing + training</li>
+                    </ul>
+                </div>
+
+                <div class="impl-card">
+                    <span class="impl-badge badge-optional">Optional</span>
+                    <h3>🛠️ Assisted Deployment</h3>
+                    <div class="impl-price">$150–175 <span>/ hour</span></div>
+                    <ul>
+                        <li>Remote installs and IT coordination</li>
+                        <li>Locked-down or restricted environments</li>
+                        <li>Multi-machine complex setups</li>
+                        <li>Quoted after scope review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annual Banner -->
+    <section class="annual-banner">
+        <div class="container">
+            <h2>Save 16.67% with Annual Billing</h2>
+            <div class="annual-highlight">Pay for 10 months, get 12</div>
+            <p>Lock in your rate for the year and get two months free. Combined with volume and bundle discounts, annual customers can save up to ~35% off list price.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section" id="get-in-touch">
+        <div class="container">
+            <h2>Let's Build a Custom Quote</h2>
+            <p class="section-intro">Every team is different. Tell me a bit about what you're looking for and I'll get back to you within 48 hours.</p>
+
+            <div class="form-wrapper">
+                <form id="contactForm" action="https://formspree.io/f/mgoldgad" method="POST">
+
+                    <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                        <div>
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                        </div>
+                        <div>
+                            <label for="company">Company / Firm</label>
+                            <input type="text" id="company" name="company" placeholder="Smith Architecture">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="jane@smitharch.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What are you interested in? (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="PyRevit tools"> PyRevit Tools
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="MCP AI tools"> MCP / AI Tools
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="Bundle (both)"> Bundle (Both)
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="Custom development"> Custom Development
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="Demo request"> See a Demo First
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="interest" value="General question"> Just a Question
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seats">Approximate Team Size</label>
+                        <input type="text" id="seats" name="seats" placeholder="e.g. 5 users, or not sure yet">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Anything else you'd like to share?</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your workflows, pain points, or what you're hoping to automate..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">Send My Info →</button>
+                    <p class="form-note">No sales pressure. I'll respond personally within 48 business hours.</p>
+                </form>
+
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">✅</div>
+                    <h3>Got it — thanks!</h3>
+                    <p>I'll review your info and reach out within 48 business hours. Talk soon!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>BIM Automation Studio</h3>
+                    <p>Custom automation solutions for Revit workflows.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/company/bim-automation-studio" target="_blank">LinkedIn</a>
+                    <a href="https://www.youtube.com/@BIMAutomationStudio" target="_blank">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BIM Automation Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Checkbox visual toggle
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                this.closest('.checkbox-item').classList.toggle('checked', this.checked);
+            });
+        });
+
+        // Form submission via Formspree
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
+                } else {
+                    alert('Something went wrong. Please email bimautomationstudio@gmail.com directly.');
+                }
+            } catch (err) {
+                alert('Something went wrong. Please email bimautomationstudio@gmail.com directly.');
+            }
+        });
+    </script>
+
+</body>
+</html>
