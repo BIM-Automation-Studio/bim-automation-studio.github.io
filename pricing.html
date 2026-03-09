@@ -620,6 +620,79 @@
             color: var(--text-light);
         }
 
+        /* ── FAQ ── */
+        .faq {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq .section-intro {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 1.1rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 400;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+
+        .faq-item[open] summary {
+            color: var(--primary-color);
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .faq-answer {
+            padding: 1.1rem 1.5rem;
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
         /* Volume discount callout */
         .volume-callout {
             background: #e8f4fd;
@@ -674,7 +747,7 @@
                 <div class="how-item">
                     <div class="how-icon">📉</div>
                     <h3>Volume Discounts</h3>
-                    <p>Price per seat drops automatically as your team grows. Discounts up to 14% for larger teams.</p>
+                    <p>Price per seat drops automatically as your team grows. Volume discounts up to 14%; up to 23% off with bundle pricing.</p>
                 </div>
                 <div class="how-item">
                     <div class="how-icon">🔧</div>
@@ -935,12 +1008,12 @@
                 <div class="example-card">
                     <div class="example-card-header bundle-header">
                         <h3>🏛️ Larger Firm</h3>
-                        <div class="firm-size">30 seats · Bundle</div>
+                        <div class="firm-size">35 seats · Bundle</div>
                     </div>
                     <div class="example-card-body">
                         <div class="example-line">
                             <span class="label">Seats</span>
-                            <span class="value">30</span>
+                            <span class="value">35</span>
                         </div>
                         <div class="example-line">
                             <span class="label">Product</span>
@@ -948,15 +1021,15 @@
                         </div>
                         <div class="example-line">
                             <span class="label">Price per seat</span>
-                            <span class="value">$87.00</span>
+                            <span class="value">$85.00</span>
                         </div>
                         <div class="example-line">
                             <span class="label">Discount applied</span>
-                            <span class="value">21% off</span>
+                            <span class="value">23% off</span>
                         </div>
                         <div class="example-total">
                             <span class="total-label">Monthly total</span>
-                            <span class="total-amount">$2,610/mo</span>
+                            <span class="total-amount">$2,975/mo</span>
                         </div>
                     </div>
                 </div>
@@ -1015,7 +1088,54 @@
         <div class="container">
             <h2>Save 16.67% with Annual Billing</h2>
             <div class="annual-highlight">Pay for 10 months, get 12</div>
-            <p>Lock in your rate for the year and get two months free. Combined with volume and bundle discounts, annual customers can save up to ~36% off list price.</p>
+            <p>Lock in your rate and get two months free. For example, a 15-seat bundle billed annually costs $13,650/yr — vs. $16,380 month-to-month, saving $2,730. Combined with volume and bundle discounts, annual customers can save up to ~36% off list price.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-intro">Answers to the most common questions before getting started.</p>
+
+            <div class="faq-list">
+
+                <details class="faq-item">
+                    <summary>What's the difference between PyRevit and MCP?</summary>
+                    <div class="faq-answer">PyRevit gives your team one-click buttons built directly into the Revit ribbon, best for repetitive tasks where the process is always the same. MCP is AI-powered and better suited for tasks where inputs vary, logic is required, or you want to give instructions in plain language. Many teams use both.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do I need to buy both products?</summary>
+                    <div class="faq-answer">No, they are fully independent. Subscribe to one or both. If you subscribe to both, you get an additional 10% bundle discount on top of any volume discount that applies to your team size.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What counts as a seat?</summary>
+                    <div class="faq-answer">A seat is one active user. Each person who needs access requires their own seat. Seats are concurrent, so if someone closes Revit, their seat is released automatically within 20 minutes and becomes available for someone else.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What happens if I add seats mid-month?</summary>
+                    <div class="faq-answer">Added seats are prorated for the remainder of the current billing cycle. If you add 5 seats on day 15 of a 30-day cycle, you are charged for 15 days at the per-seat daily rate, then full price from the next cycle onward. Removing seats takes effect the following billing cycle with no credit for the current period.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I cancel anytime?</summary>
+                    <div class="faq-answer">Monthly subscribers can cancel with 30 days written notice. Service continues through the end of that billing cycle with no partial refunds. Annual subscribers are locked in for the 12-month term with no early termination or refunds.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Why is MCP onboarding mandatory?</summary>
+                    <div class="faq-answer">MCP requires proper configuration of the server, Claude Desktop, and tool connections to function correctly. The $1,250 one-time fee covers setup validation, end-to-end testing, and a training session. It exists to make sure your deployment actually works, not as an extra revenue line.</div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is my Revit model or project data stored anywhere?</summary>
+                    <div class="faq-answer">No. The system never accesses your model files, project content, or file paths. A small amount of operational data is collected for license management and tool usage analytics. Full details are covered in the Terms and Conditions.</div>
+                </details>
+
+            </div>
         </div>
     </section>
 
