@@ -6,6 +6,9 @@
     <title>Pricing | BIM Automation Studio</title>
     <meta name="description" content="Transparent, per-seat pricing for PyRevit and MCP automation tools. No hidden fees. Start with as few as 1 seat.">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* ── Pricing Page Specific Styles ── */
@@ -717,12 +720,17 @@
             <a href="index.html" class="nav-brand">
                 <img src="logo.png" alt="BIM Automation Studio Logo" class="logo">
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="index.html#services">Services</a>
                 <a href="index.html#demos">Demos</a>
                 <a href="pricing.html" style="color: var(--secondary-color); font-weight: 700;">Pricing</a>
                 <a href="#get-in-touch" class="cta-button">Get Started</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -1261,6 +1269,58 @@
             } catch (err) {
                 alert('Something went wrong. Please email bimautomationstudio@gmail.com directly.');
             }
+        });
+    </script>
+
+    <script>
+        // Scroll entrance animations
+        (function() {
+            const SELECTORS = '.how-item, .product-block, .example-card, .impl-card';
+            const HEADING_SELECTORS = '.how-it-works h2, .products h2, .examples h2, .implementation h2, .faq h2, .contact-form-section h2';
+
+            document.querySelectorAll(SELECTORS).forEach(function(el) {
+                const siblings = Array.from(el.parentElement.children).filter(function(c) {
+                    return c.className === el.className;
+                });
+                const idx = siblings.indexOf(el);
+                el.classList.add('fade-up');
+                if (idx > 0) el.style.transitionDelay = (Math.min(idx, 3) * 0.12) + 's';
+            });
+
+            document.querySelectorAll(HEADING_SELECTORS).forEach(function(el) {
+                el.classList.add('fade-up');
+            });
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.fade-up').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
         });
     </script>
 

@@ -15,6 +15,9 @@
     <title>BIM Automation Studio | Revit Automation & Custom Tools</title>
     <meta name="description" content="Custom Revit automation solutions, Python scripts, and AI-powered BIM workflows that save AEC teams hours every week.">
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,12 +27,17 @@
             <a href="#" class="nav-brand">
                 <img src="logo.png" alt="BIM Automation Studio Logo" class="logo">
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#services">Services</a>
                 <a href="#demos">Demos</a>
                 <a href="pricing.html">Pricing</a>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -228,5 +236,56 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Scroll entrance animations
+        (function() {
+            const SELECTORS = '.problem-item, .service-card, .video-card, .demo-button, .roi-item, .contact-info, .contact-buttons';
+            const HEADING_SELECTORS = '.problem h2, .services h2, .demos h2, .roi h2, .contact h2';
+
+            document.querySelectorAll(SELECTORS).forEach(function(el) {
+                const siblings = Array.from(el.parentElement.children).filter(function(c) {
+                    return c.tagName === el.tagName || c.className === el.className;
+                });
+                const idx = siblings.indexOf(el);
+                el.classList.add('fade-up');
+                if (idx > 0) el.style.transitionDelay = (Math.min(idx, 3) * 0.12) + 's';
+            });
+
+            document.querySelectorAll(HEADING_SELECTORS).forEach(function(el) {
+                el.classList.add('fade-up');
+            });
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.fade-up').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
