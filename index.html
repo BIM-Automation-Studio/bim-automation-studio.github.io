@@ -31,7 +31,7 @@
                 <a href="#services">Services</a>
                 <a href="#demos">Demos</a>
                 <a href="pricing.html">Pricing</a>
-                <a href="#contact" class="cta-button">Get Started</a>
+                <a href="pricing.html#get-in-touch" class="cta-button" onclick="gtag('event', 'cta_click', {event_category: 'navigation', event_label: 'nav_get_started'})">Get Started</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
                 <span></span>
@@ -61,7 +61,7 @@
                         <div class="stat-label">Dramatically Reduced Manual Errors</div>
                     </div>
                 </div>
-                <a href="#contact" class="hero-cta">Schedule a Free Demo</a>
+                <a href="pricing.html#get-in-touch" class="hero-cta" onclick="gtag('event', 'cta_click', {event_category: 'hero', event_label: 'hero_schedule_demo'})">Schedule a Free Demo</a>
             </div>
         </div>
     </section>
@@ -211,14 +211,18 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Let's Talk Automation</h2>
-            <p class="contact-subtitle">Explore how custom tools could streamline your workflows.</p>
+            <h2>Ready to Cut the Manual Work?</h2>
+            <p class="contact-subtitle">Tell me what you're working with — I'll put together a custom quote.</p>
 
-            <p class="contact-intro">Whether you want to see demos, discuss custom solutions, or just talk about automation possibilities - reach out and let's connect.</p>
+            <p class="contact-intro">Takes about 2 minutes to fill out. No sales calls, no pressure — just a direct response from me within 48 hours.</p>
 
             <div class="contact-buttons">
-                <a href="https://www.linkedin.com/in/ericupshur" target="_blank" class="contact-button">Connect on LinkedIn</a>
-                <a href="mailto:bimautomationstudio@gmail.com" class="contact-button-secondary">Send an Email</a>
+                <a href="pricing.html#get-in-touch" class="contact-button" onclick="gtag('event', 'cta_click', {event_category: 'contact', event_label: 'contact_section_get_quote'})">Get a Custom Quote →</a>
+            </div>
+
+            <div class="contact-buttons" style="margin-top: 1rem;">
+                <a href="https://www.linkedin.com/in/ericupshur" target="_blank" class="contact-button-secondary" onclick="gtag('event', 'contact_click', {event_category: 'contact', event_label: 'linkedin'})">Connect on LinkedIn</a>
+                <a href="mailto:bimautomationstudio@gmail.com" class="contact-button-secondary" onclick="gtag('event', 'contact_click', {event_category: 'contact', event_label: 'email'})">Send an Email</a>
             </div>
 
             <div class="contact-info">

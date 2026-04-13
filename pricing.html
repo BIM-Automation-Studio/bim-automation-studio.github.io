@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WV3SV10YQT');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | BIM Automation Studio</title>
@@ -1263,6 +1271,11 @@
                 if (response.ok) {
                     form.style.display = 'none';
                     document.getElementById('formSuccess').style.display = 'block';
+                    // GA: track successful quote form submission
+                    gtag('event', 'form_submit', {
+                        event_category: 'contact',
+                        event_label: 'pricing_quote_form'
+                    });
                 } else {
                     alert('Something went wrong. Please email bimautomationstudio@gmail.com directly.');
                 }
