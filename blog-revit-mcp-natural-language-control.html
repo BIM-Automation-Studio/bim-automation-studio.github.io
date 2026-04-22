@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Control Revit with Natural Language Using MCP and Claude AI | BIM Automation Studio</title>
+    <meta name="description" content="A walkthrough of Revit MCP — an AI-powered tool that lets you control Revit using plain English commands. Find elements, bulk-update parameters, and export data without touching Revit's UI.">
+    <link rel="canonical" href="https://bim-automation-studio.github.io/blog-revit-mcp-natural-language-control.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bim-automation-studio.github.io/blog-revit-mcp-natural-language-control.html">
+    <meta property="og:title" content="How to Control Revit with Natural Language Using MCP and Claude AI">
+    <meta property="og:description" content="A walkthrough of Revit MCP — an AI-powered tool that lets you control Revit using plain English commands. Find elements, bulk-update parameters, and export data without touching Revit's UI.">
+    <meta property="og:image" content="https://bim-automation-studio.github.io/logo.png">
+    <meta property="og:site_name" content="BIM Automation Studio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Control Revit with Natural Language Using MCP and Claude AI">
+    <meta name="twitter:description" content="A walkthrough of Revit MCP — control Revit using plain English commands. No coding required.">
+    <meta name="twitter:image" content="https://bim-automation-studio.github.io/logo.png">
+
+    <!-- Article Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Control Revit with Natural Language Using MCP and Claude AI",
+      "description": "A walkthrough of Revit MCP — an AI-powered tool that lets you control Revit using plain English commands.",
+      "author": {
+        "@type": "Person",
+        "name": "Eric Upshur"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "BIM Automation Studio",
+        "url": "https://bim-automation-studio.github.io"
+      },
+      "datePublished": "2026-04-22",
+      "url": "https://bim-automation-studio.github.io/blog-revit-mcp-natural-language-control.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WV3SV10YQT');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            max-width: 760px;
+            margin: 0 auto 1rem;
+            line-height: 1.25;
+        }
+        .blog-hero .blog-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .blog-body {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+        .blog-content {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-dark);
+        }
+        .blog-content h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2.5rem 0 1rem;
+        }
+        .blog-content p {
+            margin-bottom: 1.25rem;
+        }
+        .blog-content ul {
+            margin: 0 0 1.25rem 1.5rem;
+        }
+        .blog-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        .blog-cta-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem 2rem;
+            margin: 3rem 0 0;
+            text-align: center;
+        }
+        .blog-cta-box a {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+        }
+        .blog-cta-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="BIM Automation Studio Logo" class="logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#demos">Demos</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="pricing.html#get-in-touch" class="cta-button" onclick="gtag('event', 'cta_click', {event_category: 'navigation', event_label: 'nav_get_started'})">Get Started</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>How to Control Revit with Natural Language Using MCP and Claude AI</h1>
+            <p class="blog-meta">By Eric Upshur &nbsp;·&nbsp; April 22, 2026 &nbsp;·&nbsp; BIM Automation Studio</p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="blog-body">
+        <div class="container">
+            <div class="blog-content">
+
+                <h2>What is Revit MCP?</h2>
+                <p>Revit MCP (Model Context Protocol) is a system that connects Revit to an AI assistant — specifically Claude — so you can give instructions in plain English and have them executed directly inside Revit. Instead of clicking through menus, writing scripts, or navigating Revit's interface to find what you need, you type a command like "find all rooms missing a department parameter" or "set the fire rating on every door in Phase 2 to 90 minutes" — and it happens.</p>
+                <p>MCP is an open protocol developed by Anthropic that allows AI models to connect to external tools and data sources. The Revit MCP implementation I've built creates a bridge between Claude Desktop and a running Revit session, giving the AI the ability to read from and write to your model in real time.</p>
+
+                <h2>What can you do with natural language Revit control?</h2>
+                <p>The short answer: anything that involves reading elements, filtering by criteria, or updating parameters at scale. Here are some examples of what you can ask:</p>
+                <ul>
+                    <li>Find all walls where the "Fire Rating" parameter is empty</li>
+                    <li>Count how many doors are in each phase of the project</li>
+                    <li>Set the "BIM Status" parameter to "Coordinated" for every structural column on Level 3</li>
+                    <li>Export a list of all rooms with their area, department, and occupancy to CSV</li>
+                    <li>Flag every element where the mark parameter doesn't match the naming convention</li>
+                    <li>Update room finish parameters from an external spreadsheet</li>
+                </ul>
+                <p>The key capability that makes MCP different from a static script is conditional logic. You can give it instructions like "if the room area is over 500 SF and the occupancy type is Assembly, set the egress width to 72 inches." That kind of if/then reasoning is where natural language control really shines — and where one-click pyRevit buttons reach their limit.</p>
+
+                <h2>How Revit MCP is different from pyRevit buttons</h2>
+                <p>Both tools automate Revit, but they solve different problems.</p>
+                <p>PyRevit buttons are best when the task is always the same — same inputs, same logic, same output every time. You click a button, it runs, done. That's ideal for things like bulk-relabeling split members, syncing room data from a known CSV format, or running a compliance audit against a fixed set of rules. The process is deterministic and repeatable.</p>
+                <p>Revit MCP is better when the task varies. Maybe the elements you need to update change each project. Maybe the logic depends on parameter values you don't know in advance. Maybe you want to ask a question about your model — "how many elements have conflicting fire ratings?" — without building a schedule or writing a query. MCP handles all of that through conversation.</p>
+                <p>Many teams end up using both: pyRevit for the high-frequency, always-the-same tasks, and MCP for the complex, one-off, or investigative work.</p>
+
+                <h2>Who is Revit MCP built for?</h2>
+                <p>Revit MCP is built for BIM managers, project architects, and senior Revit users who spend meaningful time on model data work — audits, parameter management, coordination tasks, data exports — and who want to do that work faster without writing code or learning the Revit API.</p>
+                <p>You don't need any programming background. You don't need to know Python or Dynamo. You just need to be able to describe what you want in plain English, the same way you'd describe it to a colleague. The AI figures out how to execute it in Revit.</p>
+                <p>It's particularly useful for firms that work on large, complex models where manual data management is genuinely painful — healthcare, higher education, mixed-use developments, anything with hundreds or thousands of elements that need to stay in sync with external data sources or internal BIM standards.</p>
+
+                <h2>See it in action</h2>
+                <p>The best way to understand what Revit MCP can do is to watch it. This demo covers the full range of capabilities — querying elements, bulk parameter updates, schedule creation, and CSV export — all through natural language commands with no coding required.</p>
+
+                <div style="max-width: 760px; margin: 2rem auto;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/FYK9sjsp464" title="Revit MCP — Control Revit with AI and Natural Language (Full Demo)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="blog-cta-box">
+                    <a href="pricing.html#get-in-touch">Schedule a free demo to see what MCP can do for your workflows →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>BIM Automation Studio</h3>
+                    <p>Custom automation solutions for Revit workflows.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="blog-revit-mcp-natural-language-control.html">Blog</a>
+                    <a href="https://www.linkedin.com/company/bim-automation-studio" target="_blank">LinkedIn</a>
+                    <a href="https://www.youtube.com/@BIMAutomationStudio" target="_blank">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BIM Automation Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+</body>
+</html>
