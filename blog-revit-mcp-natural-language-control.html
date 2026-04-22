@@ -30,7 +30,7 @@
       "description": "A walkthrough of Revit MCP — an AI-powered tool that lets you control Revit using plain English commands.",
       "author": {
         "@type": "Person",
-        "name": "Eric Upshur"
+        "name": "Eric"
       },
       "publisher": {
         "@type": "Organization",
@@ -143,7 +143,7 @@
     <section class="blog-hero">
         <div class="container">
             <h1>How to Control Revit with Natural Language Using MCP and Claude AI</h1>
-            <p class="blog-meta">By Eric Upshur &nbsp;·&nbsp; April 22, 2026 &nbsp;·&nbsp; BIM Automation Studio</p>
+            <p class="blog-meta">By Eric &nbsp;·&nbsp; April 22, 2026 &nbsp;·&nbsp; BIM Automation Studio</p>
         </div>
     </section>
 
@@ -153,34 +153,34 @@
             <div class="blog-content">
 
                 <h2>What is Revit MCP?</h2>
-                <p>Revit MCP (Model Context Protocol) is a system that connects Revit to an AI assistant — specifically Claude — so you can give instructions in plain English and have them executed directly inside Revit. Instead of clicking through menus, writing scripts, or navigating Revit's interface to find what you need, you type a command like "find all rooms missing a department parameter" or "set the fire rating on every door in Phase 2 to 90 minutes" — and it happens.</p>
-                <p>MCP is an open protocol developed by Anthropic that allows AI models to connect to external tools and data sources. The Revit MCP implementation I've built creates a bridge between Claude Desktop and a running Revit session, giving the AI the ability to read from and write to your model in real time.</p>
+                <p>Revit MCP (Model Context Protocol) is a system that connects Revit to Claude, an AI assistant, so you can give instructions in plain English and have them executed directly inside your model. Instead of clicking through menus or navigating Revit's interface to track down what you need, you type something like "find all rooms missing a department parameter" or "set the fire rating on every door in Phase 2 to 90 minutes" and it happens.</p>
+                <p>MCP is an open protocol developed by Anthropic that allows AI models to connect to external tools and data sources. The Revit implementation I built creates a live bridge between Claude Desktop and a running Revit session, giving the AI the ability to read from and write to your model in real time.</p>
 
                 <h2>What can you do with natural language Revit control?</h2>
-                <p>The short answer: anything that involves reading elements, filtering by criteria, or updating parameters at scale. Here are some examples of what you can ask:</p>
+                <p>The short answer: anything that involves reading elements, filtering by criteria, or updating parameters at scale. Here are some real examples of what you can ask:</p>
                 <ul>
                     <li>Find all walls where the "Fire Rating" parameter is empty</li>
                     <li>Count how many doors are in each phase of the project</li>
                     <li>Set the "BIM Status" parameter to "Coordinated" for every structural column on Level 3</li>
                     <li>Export a list of all rooms with their area, department, and occupancy to CSV</li>
-                    <li>Flag every element where the mark parameter doesn't match the naming convention</li>
+                    <li>Flag every element where the mark parameter does not match the naming convention</li>
                     <li>Update room finish parameters from an external spreadsheet</li>
                 </ul>
-                <p>The key capability that makes MCP different from a static script is conditional logic. You can give it instructions like "if the room area is over 500 SF and the occupancy type is Assembly, set the egress width to 72 inches." That kind of if/then reasoning is where natural language control really shines — and where one-click pyRevit buttons reach their limit.</p>
+                <p>The capability that separates MCP from a static script is conditional logic. You can give it instructions like "if the room area is over 500 SF and the occupancy type is Assembly, set the egress width to 72 inches." That kind of if/then reasoning is where natural language control really earns its place, and where one-click pyRevit buttons hit their limit.</p>
 
                 <h2>How Revit MCP is different from pyRevit buttons</h2>
                 <p>Both tools automate Revit, but they solve different problems.</p>
-                <p>PyRevit buttons are best when the task is always the same — same inputs, same logic, same output every time. You click a button, it runs, done. That's ideal for things like bulk-relabeling split members, syncing room data from a known CSV format, or running a compliance audit against a fixed set of rules. The process is deterministic and repeatable.</p>
-                <p>Revit MCP is better when the task varies. Maybe the elements you need to update change each project. Maybe the logic depends on parameter values you don't know in advance. Maybe you want to ask a question about your model — "how many elements have conflicting fire ratings?" — without building a schedule or writing a query. MCP handles all of that through conversation.</p>
-                <p>Many teams end up using both: pyRevit for the high-frequency, always-the-same tasks, and MCP for the complex, one-off, or investigative work.</p>
+                <p>PyRevit buttons are best when the task is always the same: same inputs, same logic, same output every time. You click a button, it runs, done. That works well for things like bulk-relabeling split members, syncing room data from a known CSV format, or running a compliance audit against a fixed set of rules. The process is deterministic and repeatable.</p>
+                <p>Revit MCP is better when the task varies. Maybe the elements you need to update change project to project. Maybe the logic depends on parameter values you do not know in advance. Maybe you want to ask a question about your model ("how many elements have conflicting fire ratings?") without building a schedule or writing a query first. MCP handles that through conversation.</p>
+                <p>A lot of teams end up using both: pyRevit for the high-frequency, always-the-same tasks, and MCP for complex, one-off, or investigative work.</p>
 
                 <h2>Who is Revit MCP built for?</h2>
-                <p>Revit MCP is built for BIM managers, project architects, and senior Revit users who spend meaningful time on model data work — audits, parameter management, coordination tasks, data exports — and who want to do that work faster without writing code or learning the Revit API.</p>
-                <p>You don't need any programming background. You don't need to know Python or Dynamo. You just need to be able to describe what you want in plain English, the same way you'd describe it to a colleague. The AI figures out how to execute it in Revit.</p>
-                <p>It's particularly useful for firms that work on large, complex models where manual data management is genuinely painful — healthcare, higher education, mixed-use developments, anything with hundreds or thousands of elements that need to stay in sync with external data sources or internal BIM standards.</p>
+                <p>Revit MCP is built for BIM managers, project architects, and senior Revit users who spend meaningful time on model data work: audits, parameter management, coordination tasks, data exports. People who want to do that work faster without writing code or learning the Revit API.</p>
+                <p>You do not need any programming background. You do not need to know Python or Dynamo. You just need to be able to describe what you want in plain English, the same way you would describe it to a colleague.</p>
+                <p>It is particularly useful for firms working on large, complex models where manual data management is genuinely painful: healthcare, higher education, mixed-use developments, anything with hundreds or thousands of elements that need to stay in sync with external data sources or internal BIM standards.</p>
 
                 <h2>See it in action</h2>
-                <p>The best way to understand what Revit MCP can do is to watch it. This demo covers the full range of capabilities — querying elements, bulk parameter updates, schedule creation, and CSV export — all through natural language commands with no coding required.</p>
+                <p>The best way to understand what Revit MCP can do is to watch it. This demo covers the full range: querying elements, bulk parameter updates, schedule creation, and CSV export, all through natural language with no coding required.</p>
 
                 <div style="max-width: 760px; margin: 2rem auto;">
                     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
@@ -188,8 +188,10 @@
                     </div>
                 </div>
 
+                <p>If you want to see what this could look like for your team's workflows, schedule a free demo and we can walk through it together.</p>
+
                 <div class="blog-cta-box">
-                    <a href="pricing.html#get-in-touch">Schedule a free demo to see what MCP can do for your workflows →</a>
+                    <a href="pricing.html#get-in-touch">Schedule a Free Demo →</a>
                 </div>
 
             </div>
