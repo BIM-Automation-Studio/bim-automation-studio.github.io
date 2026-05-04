@@ -824,6 +824,70 @@
         .volume-callout strong {
             color: var(--primary-color);
         }
+
+        /* ── Founding Client Banner ── */
+        .founding-banner {
+            background: linear-gradient(135deg, #1a4a2e 0%, #1a7a3a 100%);
+            padding: 3.5rem 0;
+        }
+
+        .founding-inner {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .founding-label {
+            display: inline-block;
+            background: #f0c040;
+            color: #1a2a00;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .founding-banner h2 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.85rem;
+            line-height: 1.25;
+        }
+
+        .founding-banner p {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.88);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .founding-cta {
+            display: inline-block;
+            background: #f0c040;
+            color: #1a2a00;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .founding-cta:hover {
+            background: #f8d560;
+            transform: translateY(-2px);
+        }
+
+        .founding-note {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.65);
+            margin-top: 1.1rem;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -881,6 +945,19 @@
                     <h3>Monthly or Annual</h3>
                     <p>Month-to-month flexibility or save 16.67% by paying annually (equivalent to 2 months free).</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founding Client Banner -->
+    <section class="founding-banner">
+        <div class="container">
+            <div class="founding-inner">
+                <div class="founding-label">Limited Spots Available</div>
+                <h2>Founding Client Pilot — Full Access, Free for 30 Days</h2>
+                <p>The first few clients get complete access at no cost. No onboarding fee, no subscription. I handle setup. All I ask is a 15-minute feedback call at the end.</p>
+                <a href="#get-in-touch" class="founding-cta">Apply for a Pilot Spot →</a>
+                <p class="founding-note">MCP onboarding fee ($1,250) is waived for pilot participants.</p>
             </div>
         </div>
     </section>
@@ -998,7 +1075,7 @@
                     <p class="tier-note">* Prices shown for base package (5 simple tools). Additional tools billed at their tier rate, discounted at the same volume tier.</p>
 
                     <div class="volume-callout">
-                        <strong>Note:</strong> MCP setup requires a one-time mandatory onboarding ($1,250) to ensure proper configuration of the MCP server, Claude Desktop, and tool connections. This is required for all MCP implementations.
+                        <strong>Note:</strong> MCP setup requires a one-time mandatory onboarding ($1,250) to ensure proper configuration of the MCP server, Claude Desktop, and tool connections. This is required for all MCP implementations. <strong>Founding client pilots include onboarding at no charge.</strong>
                     </div>
                 </div>
             </div>
@@ -1249,7 +1326,7 @@
 
                 <details class="faq-item">
                     <summary>Why is MCP onboarding mandatory?</summary>
-                    <div class="faq-answer">MCP requires proper configuration of the server, Claude Desktop, and tool connections to function correctly. The $1,250 one-time fee covers setup validation, end-to-end testing, and a training session. It exists to make sure your deployment actually works, not as an extra revenue line.</div>
+                    <div class="faq-answer">MCP requires proper configuration of the server, Claude Desktop, and tool connections to function correctly. The $1,250 one-time fee covers setup validation, end-to-end testing, and a training session. It exists to make sure your deployment actually works, not as an extra revenue line. Founding client pilots include onboarding at no charge.</div>
                 </details>
 
                 <details class="faq-item">
