@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pyRevit MCP — Combine One-Click Buttons with AI-Powered Natural Language Control | BIM Automation Studio</title>
+    <meta name="description" content="pyRevit MCP connects your custom Revit ribbon buttons with Claude AI for natural language control. Run bulk parameter updates, data exports, and model audits — all without writing code.">
+    <link rel="canonical" href="https://bim-automation-studio.github.io/pyrevit-mcp.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bim-automation-studio.github.io/pyrevit-mcp.html">
+    <meta property="og:title" content="pyRevit MCP — Combine One-Click Buttons with AI-Powered Natural Language Control">
+    <meta property="og:description" content="pyRevit MCP connects your custom Revit ribbon buttons with Claude AI for natural language control. Run bulk parameter updates, data exports, and model audits — all without writing code.">
+    <meta property="og:image" content="https://bim-automation-studio.github.io/logo.png">
+    <meta property="og:site_name" content="BIM Automation Studio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="pyRevit MCP — Combine Revit Buttons with AI Natural Language Control">
+    <meta name="twitter:description" content="pyRevit MCP connects your Revit ribbon automation with Claude AI. No coding required.">
+    <meta name="twitter:image" content="https://bim-automation-studio.github.io/logo.png">
+
+    <!-- Article + VideoObject Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": "pyRevit MCP — Combine One-Click Buttons with AI-Powered Natural Language Control",
+          "description": "A guide to combining pyRevit automation with Revit MCP for natural language control of your Revit model — no coding required.",
+          "author": {
+            "@type": "Person",
+            "name": "Eric"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "BIM Automation Studio",
+            "url": "https://bim-automation-studio.github.io"
+          },
+          "datePublished": "2026-05-05",
+          "url": "https://bim-automation-studio.github.io/pyrevit-mcp.html"
+        },
+        {
+          "@type": "ItemList",
+          "name": "pyRevit MCP Demo Videos",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "VideoObject",
+                "name": "Revit MCP v1.0 — Control Revit with AI and Natural Language (Full Demo)",
+                "description": "Full demonstration of Revit MCP v1.0: querying elements, bulk parameter updates, schedule creation, and CSV export using plain English commands.",
+                "thumbnailUrl": "https://i.ytimg.com/vi/FYK9sjsp464/hqdefault.jpg",
+                "uploadDate": "2026-01-06",
+                "contentUrl": "https://www.youtube.com/watch?v=FYK9sjsp464",
+                "embedUrl": "https://www.youtube.com/embed/FYK9sjsp464",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "BIM Automation Studio",
+                  "url": "https://bim-automation-studio.github.io"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "VideoObject",
+                "name": "Revit MCP v2.0 — AI-Powered Revit Automation Update",
+                "description": "Updated demonstration of Revit MCP v2.0 with expanded capabilities for natural language Revit control.",
+                "thumbnailUrl": "https://i.ytimg.com/vi/z6Ox4GnHMZ8/hqdefault.jpg",
+                "uploadDate": "2026-03-14",
+                "contentUrl": "https://www.youtube.com/watch?v=z6Ox4GnHMZ8",
+                "embedUrl": "https://www.youtube.com/embed/z6Ox4GnHMZ8",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "BIM Automation Studio",
+                  "url": "https://bim-automation-studio.github.io"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WV3SV10YQT');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-color) 100%);
+            color: var(--white);
+            padding: 4rem 0 3rem;
+            text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            line-height: 1.25;
+        }
+        .blog-hero .blog-meta {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .blog-body {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+        .blog-content {
+            max-width: 760px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-dark);
+        }
+        .blog-content h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2.5rem 0 1rem;
+        }
+        .blog-content p {
+            margin-bottom: 1.25rem;
+        }
+        .blog-content ul {
+            margin: 0 0 1.25rem 1.5rem;
+        }
+        .blog-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        .blog-cta-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem 2rem;
+            margin: 3rem 0 0;
+            text-align: center;
+        }
+        .blog-cta-box a {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+        }
+        .blog-cta-box a:hover {
+            text-decoration: underline;
+        }
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0 1.25rem;
+            font-size: 0.93rem;
+        }
+        .compare-table th {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        .compare-table th:first-child { border-radius: 6px 0 0 0; }
+        .compare-table th:last-child  { border-radius: 0 6px 0 0; }
+        .compare-table td {
+            padding: 0.65rem 1rem;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+            color: var(--text-dark);
+        }
+        .compare-table tr:nth-child(even) td {
+            background: var(--light-bg);
+        }
+        /* Inline callout */
+        .callout-box {
+            background: #e8f7f8;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="BIM Automation Studio Logo" class="logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#demos">Demos</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="pricing.html#get-in-touch" class="cta-button" onclick="gtag('event', 'cta_click', {event_category: 'navigation', event_label: 'nav_get_started'})">Get Started</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>pyRevit + MCP: The Complete Revit Automation Stack</h1>
+            <p class="blog-meta">By Eric &nbsp;·&nbsp; May 5, 2026 &nbsp;·&nbsp; BIM Automation Studio</p>
+        </div>
+    </section>
+
+    <!-- Article Body -->
+    <section class="blog-body">
+        <div class="container">
+            <div class="blog-content">
+
+                <h2>What is pyRevit MCP?</h2>
+                <p>pyRevit and Revit MCP are two different approaches to Revit automation — and when used together, they cover the full spectrum of what most firms need. pyRevit gives your team custom ribbon buttons for repeatable, one-click workflows. MCP (Model Context Protocol) connects Revit to Claude AI so you can control the model in plain English, without writing any code.</p>
+                <p>Together, the combination handles everything from the task you run fifty times a week (pyRevit) to the one-off audit your project manager asked for this morning that has never existed as a button before (MCP). Most of our clients end up using both.</p>
+
+                <h2>pyRevit: Custom Buttons Built for Your Firm's Workflow</h2>
+                <p>pyRevit is an open-source framework that lets you add custom Python-powered buttons directly to the Revit ribbon. When we build pyRevit tools, we write scripts tailored to your firm's standards — your parameter names, your naming conventions, your deliverable formats. The result is a button on the ribbon that anyone on the team can click without knowing anything about the API or Python.</p>
+                <p>Common uses include:</p>
+                <ul>
+                    <li>Bulk-relabeling framing members after a structural update</li>
+                    <li>Syncing room data from a project spreadsheet into Revit parameters</li>
+                    <li>Running a BIM standards audit against your firm's naming conventions</li>
+                    <li>Exporting a formatted room finish schedule to Excel in one click</li>
+                    <li>Renaming sheets and views to match a submittal package format</li>
+                </ul>
+                <p>The key characteristic of a good pyRevit button: the task is always the same. Same logic, same output, every time.</p>
+
+                <h2>Revit MCP: Natural Language Control with Claude AI</h2>
+                <p>Revit MCP is a bridge between Claude Desktop and your live Revit model. You give instructions in plain English — "find all rooms missing a department parameter" or "set the fire rating to 90 minutes on every door in Phase 2" — and the AI executes them directly inside Revit in real time.</p>
+                <p>This is where MCP earns its place: tasks that vary, require conditional logic, or need you to investigate the model before you know what to change. You do not need a script for every situation. You describe what you want, and it happens.</p>
+
+                <div class="callout-box">
+                    <strong>Example:</strong> "If the room area is over 500 SF and the occupancy type is Assembly, set the egress width parameter to 72 inches." That kind of if/then reasoning across hundreds of elements is where MCP separates itself from any static button.
+                </div>
+
+                <h2>How pyRevit and MCP Work Together</h2>
+                <p>The distinction is simple: deterministic vs. adaptive.</p>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Task type</th>
+                            <th>pyRevit buttons</th>
+                            <th>Revit MCP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Same process, runs repeatedly</td>
+                            <td>✓ Best fit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>One-off or investigative</td>
+                            <td></td>
+                            <td>✓ Best fit</td>
+                        </tr>
+                        <tr>
+                            <td>Conditional logic across elements</td>
+                            <td></td>
+                            <td>✓ Best fit</td>
+                        </tr>
+                        <tr>
+                            <td>High-frequency, any team member</td>
+                            <td>✓ Best fit</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Query model without building a schedule</td>
+                            <td></td>
+                            <td>✓ Best fit</td>
+                        </tr>
+                        <tr>
+                            <td>Bulk parameter update with fixed rules</td>
+                            <td>✓ Best fit</td>
+                            <td>✓ Works well</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>A firm might run a pyRevit button every morning to sync room data from a known CSV format — always the same structure, always the same parameters. Then on Thursday the project architect asks, "can you flag every element in the Phase 2 structural package where the mark doesn't match the sheet number prefix?" That query doesn't exist as a button. MCP handles it in a few seconds, through a conversation.</p>
+
+                <h2>Who benefits most from this setup?</h2>
+                <p>BIM managers and project architects at firms working on complex models: healthcare, higher education, mixed-use, large commercial. Anywhere that has real data management problems — parameters that drift, coordination tasks that take hours, model audits that have to happen before every milestone. The work is painful and it's usually done manually.</p>
+                <p>You don't need a programming background for either product. The buttons are pre-built by us. MCP is operated through plain language. The learning curve is describing what you want clearly — which you already do every day with your team.</p>
+
+                <h2>See it in action</h2>
+                <p>The v1.0 demo below shows the full MCP capability: querying elements by parameter, bulk updates with conditional logic, schedule creation, and CSV export — all through natural language with no code.</p>
+
+                <div style="max-width: 760px; margin: 2rem auto;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/FYK9sjsp464" title="Revit MCP v1.0 — Control Revit with AI and Natural Language (Full Demo)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <p>The v2.0 update expanded capabilities further — more tool coverage, better handling of large element sets, and improved parameter validation.</p>
+
+                <div style="max-width: 760px; margin: 2rem auto;">
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/z6Ox4GnHMZ8" title="Revit MCP v2.0 — AI-Powered Revit Automation Update" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <h2>Pricing and getting started</h2>
+                <p>pyRevit buttons start at <strong>$50 / seat / month</strong>. MCP tools start at <strong>$60 / seat / month</strong>. Bundle both for <strong>$99 / seat / month</strong> with a 10% bundle discount. Volume discounts apply for teams of six or more.</p>
+                <p>The first firms to sign on are getting 30 days of full access at no cost — no subscription, no onboarding fee. Setup is handled. The only ask is a 15-minute feedback call at the end of the trial.</p>
+
+                <div class="blog-cta-box">
+                    <a href="pricing.html#get-in-touch" onclick="gtag('event', 'cta_click', {event_category: 'blog', event_label: 'pyrevit_mcp_cta'})">Apply for a Pilot Spot — 30 Days Free →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>BIM Automation Studio</h3>
+                    <p>Custom automation solutions for Revit workflows.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="blog-revit-mcp-natural-language-control.html">Blog</a>
+                    <a href="https://www.linkedin.com/company/bim-automation-studio" target="_blank">LinkedIn</a>
+                    <a href="https://www.youtube.com/@BIMAutomationStudio" target="_blank">YouTube</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BIM Automation Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+</body>
+</html>
