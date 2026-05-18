@@ -1,0 +1,207 @@
+/* =========================================================================
+   BIM Automation Studio — Colors & Type Tokens
+   Source: brand-locked logo colors + design brief + bim-automation-studio.github.io
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+    /* ── Brand colors (locked to logo — DO NOT CHANGE) ─────────────── */
+    --bas-navy:        #1a1a2e;   /* deep navy — hero / dark sections */
+    --bas-blue:        #3c6dc3;   /* primary action / links */
+    --bas-teal:        #00adb5;   /* secondary / interactive accent */
+    --bas-coral:       #e94560;   /* accent / urgency / single CTA */
+    --bas-gold:        #ffd700;   /* hero pricing callout only */
+
+    /* ── Neutrals ───────────────────────────────────────────────────── */
+    --bas-ink:         #2d3436;   /* body text on light */
+    --bas-ink-muted:   #636e72;   /* secondary copy / labels */
+    --bas-paper:       #f8f9fa;   /* light background */
+    --bas-white:       #ffffff;
+    --bas-line:        #eef0f3;   /* hairlines */
+    --bas-line-strong: #d8dde3;
+
+    /* Dark-surface neutrals (for navy backgrounds) */
+    --bas-navy-100:    #2a2a44;   /* one step lighter than navy */
+    --bas-navy-200:    #3a3a5c;
+    --bas-on-navy:     #ffffff;
+    --bas-on-navy-mut: rgba(255,255,255,0.78);
+    --bas-on-navy-dim: rgba(255,255,255,0.55);
+
+    /* ── Semantic state colors ──────────────────────────────────────── */
+    --bas-success:     #2e7d32;
+    --bas-success-bg:  #e8f5e9;
+    --bas-info:        #1565c0;
+    --bas-info-bg:     #e3f2fd;
+    --bas-danger:      #b71c1c;
+    --bas-danger-bg:   #fce4ec;
+    --bas-warn:        #946200;
+    --bas-warn-bg:     #fff4d6;
+
+    /* ── Foreground / background semantic ───────────────────────────── */
+    --fg-1:            var(--bas-ink);          /* primary body */
+    --fg-2:            var(--bas-ink-muted);    /* secondary copy */
+    --fg-accent:       var(--bas-blue);         /* link / brand action */
+    --fg-on-dark:      var(--bas-on-navy);
+    --bg-page:         var(--bas-white);
+    --bg-soft:         var(--bas-paper);
+    --bg-dark:         var(--bas-navy);
+
+    /* ── Type families ──────────────────────────────────────────────── */
+    --font-display:    "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body:       "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono:       "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    /* ── Type scale (display / Barlow) ──────────────────────────────── */
+    --type-display-xl:  clamp(2.75rem, 4.5vw + 1rem, 3.75rem);   /* hero h1 */
+    --type-display-lg:  clamp(2.25rem, 3vw + 1rem, 3rem);
+    --type-display-md:  2.2rem;     /* section h2 */
+    --type-display-sm:  1.6rem;     /* card h3 / large */
+    --type-h3:          1.3rem;
+    --type-h4:          1.05rem;
+
+    /* Body / Source Sans 3 */
+    --type-body-lg:     1.2rem;     /* hero subtitle */
+    --type-body:        1rem;
+    --type-body-sm:     0.92rem;
+    --type-caption:     0.82rem;
+    --type-overline:    0.78rem;    /* uppercase labels */
+
+    /* ── Line heights ───────────────────────────────────────────────── */
+    --lh-tight:         1.15;
+    --lh-snug:          1.3;
+    --lh-normal:        1.6;
+    --lh-relaxed:       1.7;
+
+    /* ── Weights ────────────────────────────────────────────────────── */
+    --w-regular:        400;
+    --w-medium:         500;
+    --w-semi:           600;
+    --w-bold:           700;
+
+    /* ── Spacing scale (8 / 4 hybrid) ───────────────────────────────── */
+    --space-0:          0;
+    --space-1:          4px;
+    --space-2:          8px;
+    --space-3:          12px;
+    --space-4:          16px;
+    --space-5:          24px;
+    --space-6:          32px;
+    --space-7:          48px;
+    --space-8:          64px;
+    --space-9:          80px;
+    --space-10:         96px;       /* major section padding (5rem) */
+
+    /* ── Radii ──────────────────────────────────────────────────────── */
+    --radius-xs:        4px;
+    --radius-sm:        5px;        /* buttons / inputs */
+    --radius-md:        8px;
+    --radius-lg:        10px;       /* cards (most common) */
+    --radius-xl:        12px;       /* product blocks / examples */
+    --radius-pill:      999px;
+
+    /* ── Borders ────────────────────────────────────────────────────── */
+    --border-hair:      1px solid var(--bas-line);
+    --border-soft:      2px solid var(--bas-paper);
+    --border-strong:    1px solid var(--bas-line-strong);
+    --accent-stripe:    4px solid var(--bas-teal);     /* service-card left border */
+    --accent-stripe-coral: 5px solid var(--bas-coral); /* bundle product block */
+
+    /* ── Shadows / elevation ────────────────────────────────────────── */
+    --shadow-1:         0 2px 10px rgba(0,0,0,0.10);   /* navbar */
+    --shadow-2:         0 3px 12px rgba(0,0,0,0.07);   /* small cards */
+    --shadow-3:         0 5px 15px rgba(0,0,0,0.10);   /* problem cards */
+    --shadow-4:         0 5px 20px rgba(0,0,0,0.08);   /* product blocks */
+    --shadow-lift:      0 12px 30px rgba(0,0,0,0.12);  /* hover lift */
+    --shadow-cta:       0 10px 30px rgba(233, 69, 96, 0.40); /* coral CTA glow */
+    --shadow-cta-teal:  0 10px 30px rgba(0, 173, 181, 0.40);
+
+    /* ── Gradients (use sparingly — hero / contact / banner) ────────── */
+    --grad-hero:        linear-gradient(135deg, var(--bas-navy) 0%, var(--bas-blue) 100%);
+    --grad-bundle:      linear-gradient(135deg, var(--bas-blue) 0%, var(--bas-coral) 100%);
+    --grad-pair:        linear-gradient(135deg, var(--bas-blue) 0%, var(--bas-teal) 100%);
+
+    /* ── Hero dot pattern overlay ───────────────────────────────────── */
+    --pattern-dots: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    --pattern-dots-size: 32px 32px;
+
+    /* ── Motion ─────────────────────────────────────────────────────── */
+    --ease-standard:    ease;
+    --dur-fast:         0.2s;
+    --dur-base:         0.3s;
+    --dur-slow:         0.6s;
+    --dur-fade-up:      0.65s;
+
+    /* ── Layout ─────────────────────────────────────────────────────── */
+    --container:        1200px;
+    --container-pad:    20px;
+    --section-pad-y:    5rem;       /* 80px */
+    --scroll-pad-top:   80px;       /* sticky nav clearance */
+}
+
+/* =========================================================================
+   Semantic element styles — use these directly on h1/h2/p/a/code etc.
+   ========================================================================= */
+
+html { scroll-padding-top: var(--scroll-pad-top); }
+
+body {
+    font-family: var(--font-body);
+    font-weight: var(--w-regular);
+    line-height: var(--lh-normal);
+    color: var(--fg-1);
+    background: var(--bg-page);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    line-height: var(--lh-tight);
+    color: var(--fg-1);
+    font-weight: var(--w-bold);
+    letter-spacing: -0.01em;
+}
+
+h1 { font-size: var(--type-display-xl); }
+h2 { font-size: var(--type-display-md); color: var(--bas-blue); }
+h3 { font-size: var(--type-h3); }
+h4 { font-size: var(--type-h4); }
+
+p  { font-size: var(--type-body); line-height: var(--lh-normal); }
+
+a  {
+    color: var(--bas-blue);
+    text-decoration: none;
+    transition: color var(--dur-base) var(--ease-standard);
+}
+a:hover { color: var(--bas-teal); }
+
+small, .caption { font-size: var(--type-caption); color: var(--fg-2); }
+
+.overline {
+    font-size: var(--type-overline);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-2);
+    font-weight: var(--w-semi);
+}
+
+code, pre, kbd {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+}
+
+code {
+    background: var(--bas-paper);
+    color: var(--bas-navy);
+    padding: 0.12em 0.4em;
+    border-radius: var(--radius-xs);
+}
+
+pre {
+    background: var(--bas-navy);
+    color: var(--bas-on-navy);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    line-height: var(--lh-snug);
+}
