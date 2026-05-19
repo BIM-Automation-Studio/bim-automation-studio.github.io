@@ -3,26 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Control Revit with Natural Language Using MCP and Claude AI · BIM Automation Studio</title>
-<meta name="description" content="A walkthrough of Revit MCP, an AI-powered tool that lets you control Revit using plain English commands. Find elements, bulk-update parameters, and export data without touching Revit's UI.">
-<link rel="canonical" href="https://bim-automation-studio.github.io/blog-revit-mcp-natural-language-control.html">
+<title>What Is MCP in Revit and BIM? A Plain-English Explanation · BIM Automation Studio</title>
+<meta name="description" content="MCP (Model Context Protocol) lets an AI like Claude connect directly to your live Revit session. Here's what that means, what you can do with it, and how it compares to Dynamo and pyRevit.">
+<link rel="canonical" href="https://bim-automation-studio.github.io/blog-what-is-mcp-in-revit-bim.html">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How to Control Revit with Natural Language Using MCP and Claude AI",
+  "headline": "What Is MCP in Revit and BIM? A Plain-English Explanation",
   "author": { "@type": "Person", "name": "Eric Upshur" },
   "publisher": { "@type": "Organization", "name": "BIM Automation Studio" },
-  "datePublished": "2026-04-22"
+  "datePublished": "2026-05-18"
 }
 </script>
 
 <link rel="stylesheet" href="colors_and_type.css">
 <style>
-/* ============================================================
-   RESET & PRIMITIVES (matched to Landing Page.html / pricing.html)
-   ============================================================ */
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bas-paper); }
 img { max-width: 100%; display: block; }
@@ -39,7 +36,6 @@ img { max-width: 100%; display: block; }
 }
 .eyebrow::before { content:""; width:24px; height:1px; background: var(--bas-teal); display: inline-block; }
 
-/* Buttons */
 .btn {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 26px; border-radius: var(--radius-sm);
@@ -53,13 +49,7 @@ img { max-width: 100%; display: block; }
 .btn--ghost:hover { background: rgba(255,255,255,0.08); color: #fff; border-color: #fff; }
 .btn--teal { background: var(--bas-teal); color: #fff; }
 .btn--teal:hover { background: #019199; color: #fff; }
-.btn--outline { background: transparent; color: var(--bas-blue); border: 1.5px solid var(--bas-blue); }
-.btn--outline:hover { background: var(--bas-blue); color: #fff; }
-.btn--sm { padding: 10px 16px; font-size: 0.88rem; }
 
-/* ============================================================
-   NAV
-   ============================================================ */
 .nav {
   position: sticky; top: 0; z-index: 100;
   background: rgba(26,26,46,0.94);
@@ -82,9 +72,6 @@ img { max-width: 100%; display: block; }
 .nav__cta:hover { background: #d63d56; color: #fff; }
 .nav__burger { display: none; background: transparent; border: 0; color: #fff; cursor: pointer; padding: 8px; line-height: 0; }
 
-/* ============================================================
-   ARTICLE HERO
-   ============================================================ */
 .article-hero {
   background: var(--bas-navy);
   color: #fff;
@@ -159,21 +146,13 @@ img { max-width: 100%; display: block; }
   background: var(--bas-teal); flex-shrink: 0;
 }
 
-/* ============================================================
-   ARTICLE LAYOUT
-   ============================================================ */
-.article-shell {
-  background: #fff;
-  padding: 64px 0 96px;
-}
+.article-shell { background: #fff; padding: 64px 0 96px; }
 .article-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   gap: 64px;
   align-items: start;
 }
-
-/* Article column */
 .article {
   max-width: 720px;
   font-size: 1.05rem;
@@ -182,89 +161,60 @@ img { max-width: 100%; display: block; }
 }
 .article h2 {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.6rem; font-weight: 700;
   color: var(--bas-navy);
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  letter-spacing: -0.01em; line-height: 1.25;
   margin: 56px 0 18px;
   scroll-margin-top: 90px;
-  position: relative;
-  padding-left: 22px;
+  position: relative; padding-left: 22px;
 }
 .article h2::before {
   content:""; position: absolute; left: 0; top: 0.45em;
   width: 8px; height: 8px;
-  background: var(--bas-teal);
-  border-radius: 1px;
+  background: var(--bas-teal); border-radius: 1px;
 }
 .article h2:first-child { margin-top: 0; }
 .article p { margin: 0 0 18px; color: var(--bas-ink); }
 .article p:first-child { font-size: 1.18rem; color: var(--bas-ink); line-height: 1.65; }
 .article strong { color: var(--bas-navy); font-weight: 600; }
-.article ul {
-  margin: 0 0 22px;
-  padding-left: 0;
-  list-style: none;
-}
-.article ul li {
-  position: relative;
-  padding: 4px 0 4px 28px;
-  margin-bottom: 6px;
-}
+.article ul { margin: 0 0 22px; padding-left: 0; list-style: none; }
+.article ul li { position: relative; padding: 4px 0 4px 28px; margin-bottom: 6px; }
 .article ul li::before {
-  content:"";
-  position: absolute; left: 0; top: 0.85em;
-  width: 14px; height: 1.5px;
-  background: var(--bas-coral);
+  content:""; position: absolute; left: 0; top: 0.85em;
+  width: 14px; height: 1.5px; background: var(--bas-coral);
 }
 .article a { color: var(--bas-blue); border-bottom: 1px solid rgba(60,109,195,0.3); }
 .article a:hover { color: var(--bas-teal); border-bottom-color: var(--bas-teal); }
 
-.article-video {
-  margin: 32px 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--bas-navy);
-  box-shadow: var(--shadow-lift);
+.compare-table { width: 100%; border-collapse: collapse; margin: 28px 0 32px; font-size: 0.95rem; }
+.compare-table th {
+  background: var(--bas-navy); color: #fff;
+  font-family: var(--font-display); font-weight: 600;
+  padding: 12px 16px; text-align: left;
+  font-size: 0.82rem; letter-spacing: 0.04em;
 }
-.article-video__frame {
-  position: relative;
-  padding-bottom: 56.25%; height: 0;
-}
-.article-video__frame iframe {
-  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-}
-.article-video__caption {
-  font-family: var(--font-mono); font-size: 0.78rem;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--bas-on-navy-mut);
-  padding: 12px 20px;
-  background: var(--bas-navy);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex; justify-content: space-between; align-items: center;
-}
-.article-video__caption span:last-child { color: var(--bas-teal); }
+.compare-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+.compare-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+.compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--bas-line); color: var(--bas-ink); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: var(--bas-paper); }
+.compare-table td:first-child { font-weight: 600; color: var(--bas-navy); white-space: nowrap; }
 
 .article-callout {
   background: var(--bas-paper);
   border-left: 4px solid var(--bas-teal);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  padding: 24px 28px;
-  margin: 32px 0;
+  padding: 24px 28px; margin: 32px 0;
 }
 .article-callout__label {
   font-family: var(--font-mono); font-size: 0.75rem;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--bas-teal); font-weight: 600;
-  margin-bottom: 8px;
+  color: var(--bas-teal); font-weight: 600; margin-bottom: 8px;
 }
-.article-callout p { margin: 0; }
+.article-callout p { margin: 0; font-size: 1rem; }
 
-/* Tag list at end of article */
 .article-tags {
-  margin-top: 56px;
-  padding-top: 28px;
+  margin-top: 56px; padding-top: 28px;
   border-top: 1px solid var(--bas-line);
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
@@ -274,109 +224,66 @@ img { max-width: 100%; display: block; }
   color: var(--bas-ink-muted); font-weight: 600; margin-right: 6px;
 }
 .article-tag {
-  display: inline-block;
-  font-family: var(--font-mono); font-size: 0.78rem;
-  padding: 4px 10px;
-  background: var(--bas-paper);
-  border: 1px solid var(--bas-line);
-  border-radius: var(--radius-pill);
+  display: inline-block; font-family: var(--font-mono); font-size: 0.78rem;
+  padding: 4px 10px; background: var(--bas-paper);
+  border: 1px solid var(--bas-line); border-radius: var(--radius-pill);
   color: var(--bas-ink-muted);
 }
 
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
-.sidebar {
-  position: sticky;
-  top: 90px;
-  display: flex; flex-direction: column; gap: 24px;
-}
-.toc {
-  background: #fff;
-  border: 1px solid var(--bas-line);
-  border-radius: var(--radius-lg);
-  padding: 22px 22px 18px;
-}
+.sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 24px; }
+.toc { background: #fff; border: 1px solid var(--bas-line); border-radius: var(--radius-lg); padding: 22px 22px 18px; }
 .toc__label {
   font-family: var(--font-mono); font-size: 0.72rem;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bas-teal); font-weight: 600;
-  margin-bottom: 14px;
+  color: var(--bas-teal); font-weight: 600; margin-bottom: 14px;
   display: flex; align-items: center; gap: 10px;
 }
-.toc__label::before {
-  content:""; width: 18px; height: 1px; background: var(--bas-teal);
-}
+.toc__label::before { content:""; width: 18px; height: 1px; background: var(--bas-teal); }
 .toc__list { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
-.toc__list li {
-  counter-increment: toc;
-  border-left: 1.5px solid var(--bas-line);
-  margin: 0;
-}
+.toc__list li { counter-increment: toc; border-left: 1.5px solid var(--bas-line); margin: 0; }
 .toc__list li.is-active { border-left-color: var(--bas-teal); }
 .toc__list a {
-  display: block;
-  padding: 8px 0 8px 14px;
-  font-size: 0.88rem;
-  color: var(--bas-ink-muted);
-  text-decoration: none;
-  line-height: 1.4;
-  transition: color 0.15s;
-  position: relative;
+  display: block; padding: 8px 0 8px 14px;
+  font-size: 0.88rem; color: var(--bas-ink-muted);
+  text-decoration: none; line-height: 1.4; transition: color 0.15s; position: relative;
 }
 .toc__list a::before {
   content: counter(toc, decimal-leading-zero);
   font-family: var(--font-mono); font-size: 0.7rem;
-  color: var(--bas-line-strong);
-  margin-right: 8px;
-  letter-spacing: 0.05em;
+  color: var(--bas-line-strong); margin-right: 8px; letter-spacing: 0.05em;
 }
 .toc__list a:hover { color: var(--bas-blue); }
 .toc__list li.is-active a { color: var(--bas-navy); font-weight: 600; }
 .toc__list li.is-active a::before { color: var(--bas-teal); }
 
 .cta-card {
-  background: var(--bas-navy);
-  color: #fff;
-  border-radius: var(--radius-lg);
-  padding: 24px 22px;
+  background: var(--bas-navy); color: #fff;
+  border-radius: var(--radius-lg); padding: 24px 22px;
   position: relative; overflow: hidden;
 }
 .cta-card::before {
   content:""; position:absolute; inset:0;
   background-image: var(--pattern-dots);
-  background-size: 22px 22px;
-  opacity: 0.5; pointer-events: none;
+  background-size: 22px 22px; opacity: 0.5; pointer-events: none;
 }
 .cta-card > * { position: relative; z-index: 1; }
 .cta-card__label {
   font-family: var(--font-mono); font-size: 0.7rem;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bas-teal); font-weight: 600;
-  margin-bottom: 10px;
+  color: var(--bas-teal); font-weight: 600; margin-bottom: 10px;
 }
 .cta-card h3 {
-  font-family: var(--font-display);
-  font-size: 1.15rem; font-weight: 700;
-  color: #fff; line-height: 1.3;
-  margin: 0 0 14px;
+  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
+  color: #fff; line-height: 1.3; margin: 0 0 14px;
 }
-.cta-card p {
-  font-size: 0.88rem;
-  color: var(--bas-on-navy-mut);
-  line-height: 1.5;
-  margin: 0 0 18px;
-}
+.cta-card p { font-size: 0.88rem; color: var(--bas-on-navy-mut); line-height: 1.5; margin: 0 0 18px; }
 .cta-card__actions { display: flex; flex-direction: column; gap: 8px; }
 .cta-card__action {
   display: flex; align-items: center; justify-content: space-between;
   padding: 11px 14px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-sm);
-  color: #fff; text-decoration: none;
-  font-size: 0.9rem; font-family: var(--font-display); font-weight: 600;
-  transition: all 0.2s;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm); color: #fff; text-decoration: none;
+  font-size: 0.9rem; font-family: var(--font-display); font-weight: 600; transition: all 0.2s;
 }
 .cta-card__action:hover { background: rgba(0,173,181,0.16); border-color: var(--bas-teal); color: #fff; }
 .cta-card__action--primary { background: var(--bas-coral); border-color: var(--bas-coral); }
@@ -385,96 +292,31 @@ img { max-width: 100%; display: block; }
 .cta-card__action:hover svg { opacity: 1; transform: translateX(2px); transition: transform 0.2s; }
 
 .final-cta { padding: 80px 0; background: var(--grad-hero); color: #fff; position: relative; overflow: hidden; text-align: center; }
-
-/* ============================================================
-   BLOG FEED: "From the blog"
-   ============================================================ */
-.blog-feed { background: var(--bas-paper); padding: 80px 0; border-top: 1px solid var(--bas-line); }
-.blog-feed__head { display: flex; align-items: end; justify-content: space-between; margin-bottom: 36px; gap: 24px; flex-wrap: wrap; }
-.blog-feed__title { font-family: var(--font-display); font-size: clamp(1.6rem, 1.4vw + 1rem, 2rem); font-weight: 700; color: var(--bas-navy); line-height: 1.2; margin: 8px 0 0; max-width: 520px; }
-.blog-feed__sub { color: var(--bas-ink-muted); font-size: 1rem; line-height: 1.55; max-width: 460px; margin: 0; }
-.blog-feed__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 20px; }
-.post-card {
-  display: flex; flex-direction: column; gap: 14px;
-  padding: 28px;
-  background: #fff;
-  border: 1px solid var(--bas-line);
-  border-radius: var(--radius-lg);
-  text-decoration: none; color: inherit;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  min-height: 240px;
-}
-.post-card--current { background: var(--bas-navy); color: #fff; border-color: var(--bas-navy); cursor: default; }
-.post-card--current::before { content:""; position:absolute; inset:0; border-radius: var(--radius-lg); background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); opacity: 0.45; pointer-events: none; }
-.post-card--current > * { position: relative; z-index: 1; }
-.post-card--upcoming { border-style: dashed; background: transparent; cursor: default; }
-.post-card:not(.post-card--current):not(.post-card--upcoming):hover { transform: translateY(-2px); border-color: var(--bas-teal); box-shadow: var(--shadow-lift); }
-.post-card__meta { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-ink-muted); }
-.post-card--current .post-card__meta { color: var(--bas-teal); }
-.post-card__meta-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.7; }
-.post-card__tag { background: rgba(0,173,181,0.1); color: var(--bas-teal); padding: 3px 9px; border-radius: var(--radius-pill); }
-.post-card--current .post-card__tag { background: rgba(0,173,181,0.18); }
-.post-card__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; line-height: 1.3; color: var(--bas-navy); margin: 0; }
-.post-card--current .post-card__title { color: #fff; font-size: 1.3rem; }
-.post-card--upcoming .post-card__title { color: var(--bas-ink-muted); font-style: italic; font-weight: 500; }
-.post-card__excerpt { color: var(--bas-ink-muted); font-size: 0.92rem; line-height: 1.55; margin: 0; }
-.post-card--current .post-card__excerpt { color: var(--bas-on-navy-mut); }
-.post-card__foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 12px; }
-.post-card__readtime { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--bas-ink-muted); }
-.post-card--current .post-card__readtime { color: var(--bas-on-navy-dim); }
-.post-card__cta { font-family: var(--font-display); font-weight: 600; font-size: 0.86rem; color: var(--bas-teal); display: inline-flex; align-items: center; gap: 6px; }
-.post-card__cta svg { width: 14px; height: 14px; transition: transform 0.2s ease; }
-.post-card:hover .post-card__cta svg { transform: translateX(3px); }
-.post-card__youre-here { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
-.post-card__youre-here::before { content:""; width: 6px; height: 6px; border-radius: 50%; background: var(--bas-coral); box-shadow: 0 0 8px rgba(233,69,96,0.7); }
-.post-card__upcoming-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-ink-muted); }
-.post-card__upcoming-badge::before { content:"···"; letter-spacing: 0.05em; color: var(--bas-coral); }
-@media (max-width: 900px) { .blog-feed__grid { grid-template-columns: 1fr; } }
 .final-cta::before {
   content:""; position:absolute; inset:0;
   background-image: var(--pattern-dots);
-  background-size: var(--pattern-dots-size);
-  opacity: 0.7;
+  background-size: var(--pattern-dots-size); opacity: 0.7;
 }
 .final-cta__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
 .final-cta h2 {
   color: #fff; font-family: var(--font-display);
   font-size: clamp(1.9rem, 2.6vw + 1rem, 2.6rem);
-  font-weight: 700; line-height: 1.2;
-  margin: 12px 0 18px;
+  font-weight: 700; line-height: 1.2; margin: 12px 0 18px;
 }
-.final-cta p {
-  color: var(--bas-on-navy-mut);
-  font-size: 1.08rem; line-height: 1.6;
-  margin: 0 0 32px;
-}
-.final-cta__buttons {
-  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-  margin-bottom: 36px;
-}
+.final-cta p { color: var(--bas-on-navy-mut); font-size: 1.08rem; line-height: 1.6; margin: 0 0 32px; }
+.final-cta__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
 .final-cta__bio {
   margin-top: 28px; padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,0.1);
-  font-size: 0.95rem; color: var(--bas-on-navy-mut);
-  line-height: 1.6; text-align: left;
+  font-size: 0.95rem; color: var(--bas-on-navy-mut); line-height: 1.6; text-align: left;
 }
 .final-cta__bio strong { color: #fff; }
-.final-cta__sig {
-  margin-top: 14px;
-  color: #fff; font-weight: 600;
-  font-family: var(--font-display); letter-spacing: 0.02em;
-}
+.final-cta__sig { margin-top: 14px; color: #fff; font-weight: 600; font-family: var(--font-display); letter-spacing: 0.02em; }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .footer { background: #0c0c1a; color: var(--bas-on-navy-mut); padding: 56px 0 28px; }
 .footer__top {
   display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 36px;
-  padding-bottom: 36px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 .footer__brand img { height: 36px; }
@@ -493,19 +335,14 @@ img { max-width: 100%; display: block; }
 .footer__col a:hover { color: var(--bas-teal); }
 .footer__bottom {
   display: flex; justify-content: space-between; align-items: center;
-  padding-top: 24px; font-size: 0.86rem;
-  color: var(--bas-on-navy-dim);
+  padding-top: 24px; font-size: 0.86rem; color: var(--bas-on-navy-dim);
   flex-wrap: wrap; gap: 12px;
 }
 .footer__bottom a { color: var(--bas-on-navy-mut); text-decoration: none; }
 .footer__bottom a:hover { color: var(--bas-teal); }
 
-/* Icon helper */
 .ic { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 1000px) {
   .article-grid { grid-template-columns: 1fr; gap: 40px; }
   .sidebar { position: static; order: 2; max-width: 720px; }
@@ -532,6 +369,8 @@ img { max-width: 100%; display: block; }
   .article-shell { padding: 40px 0 64px; }
   .article { font-size: 1rem; }
   .article h2 { font-size: 1.35rem; margin-top: 40px; }
+  .compare-table { font-size: 0.85rem; }
+  .compare-table td, .compare-table th { padding: 9px 10px; }
   .footer__top { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
 }
@@ -539,18 +378,14 @@ img { max-width: 100%; display: block; }
 </head>
 <body>
 
-<!-- Icon sprite -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
   <defs>
     <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M8 5l12 7-12 7V5z"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></symbol>
     <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zM8.34 8h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v8.44h-4.56v-7.49c0-1.79-.04-4.1-2.5-4.1-2.5 0-2.88 1.95-2.88 3.97V22H8.34V8z"/></symbol>
     <symbol id="i-youtube" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></symbol>
-    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
     <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 14l.7 2.1L22 17l-2.3.9L19 20l-.7-2.1L16 17l2.3-.9L19 14z"/></symbol>
-    <symbol id="i-quote" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M7 10c0-2.2 1.8-4 4-4V4c-3.3 0-6 2.7-6 6v8h6v-8H7zm10 0c0-2.2 1.8-4 4-4V4c-3.3 0-6 2.7-6 6v8h6v-8h-4z"/></symbol>
   </defs>
 </svg>
 
@@ -563,7 +398,6 @@ img { max-width: 100%; display: block; }
     </a>
     <button class="nav__burger" aria-label="Menu" id="burger"><svg class="ic" style="width:24px;height:24px"><use href="#i-menu"/></svg></button>
     <nav class="nav__links" id="nav-links">
-
       <a href="blog-revit-mcp-natural-language-control.html" class="nav__link active">Blog</a>
       <a href="pyrevit-mcp.html" class="nav__link">pyRevit + MCP</a>
       <a href="pricing.html" class="nav__link">Pricing</a>
@@ -579,11 +413,13 @@ img { max-width: 100%; display: block; }
       <div class="article-hero__crumbs">
         <a href="index.html">Home</a>
         <span class="sep">/</span>
-        <span style="color:#fff">MCP walkthrough</span>
+        <a href="blog-revit-mcp-natural-language-control.html">Blog</a>
+        <span class="sep">/</span>
+        <span style="color:#fff">What is MCP in Revit?</span>
       </div>
-      <span class="article-hero__tag"><svg class="ic" style="width:11px;height:11px"><use href="#i-sparkles"/></svg> Product walkthrough</span>
-      <h1>How to Control Revit with Natural Language Using MCP and Claude AI</h1>
-      <p class="article-hero__deck">A walkthrough of Revit MCP, an AI-powered tool that lets you control Revit using plain English commands. Find elements, bulk-update parameters, and export data without touching Revit's UI.</p>
+      <span class="article-hero__tag"><svg class="ic" style="width:11px;height:11px"><use href="#i-sparkles"/></svg> Explainer</span>
+      <h1>What Is MCP in Revit and BIM? A Plain-English Explanation</h1>
+      <p class="article-hero__deck">MCP (Model Context Protocol) is the layer that connects an AI like Claude to your live Revit session. Here is what it actually means, how it compares to Dynamo and pyRevit, and which tasks it is built for.</p>
       <div class="article-hero__byline">
         <div class="byline__avatar">EU</div>
         <div class="byline__meta">
@@ -593,9 +429,9 @@ img { max-width: 100%; display: block; }
         <div class="byline__sep"></div>
         <div class="byline__date">
           <small>Published</small>
-          <span>April 22, 2026</span>
+          <span>May 18, 2026</span>
         </div>
-        <span class="byline__readtime">7 min read</span>
+        <span class="byline__readtime">6 min read</span>
       </div>
     </div>
   </div>
@@ -606,61 +442,88 @@ img { max-width: 100%; display: block; }
   <div class="container">
     <div class="article-grid">
 
-      <!-- ARTICLE -->
       <article class="article">
-        <h2 id="what-is-mcp">What is Revit MCP?</h2>
-        <p>Revit MCP (Model Context Protocol) is a system that connects Revit to Claude, an AI assistant, so you can give instructions in plain English and have them executed directly inside your model. Instead of clicking through menus or navigating Revit's interface to track down what you need, you type something like "find all rooms missing a department parameter" or "set the fire rating on every door in Phase 2 to 90 minutes" and it happens.</p>
-        <p>MCP is an open protocol developed by Anthropic that allows AI models to connect to external tools and data sources. The Revit implementation I built creates a live bridge between Claude Desktop and a running Revit session, giving the AI the ability to read from and write to your model in real time.</p>
 
-        <h2 id="what-can-you-do">What can you do with natural language Revit control?</h2>
-        <p>The short answer: anything that involves reading elements, filtering by criteria, or updating parameters at scale. Here are some real examples of what you can ask:</p>
+        <h2 id="what-is-mcp">What MCP actually is</h2>
+        <p>MCP stands for Model Context Protocol. It is an open standard, developed by Anthropic, that lets an AI assistant connect directly to external tools and data sources. In the context of Revit, it means Claude (the AI) can talk to your live Revit session in real time: reading elements, querying parameters, and writing data back to the model.</p>
+        <p>Without MCP, Claude is like asking a knowledgeable colleague who has never seen your project. They can explain what a curtain wall is or how Revit phases work, but they have no visibility into what is actually in your model. MCP creates a live connection to your specific open project, so the AI is responding to real data, not general knowledge.</p>
+        <p>The protocol itself is not Revit-specific. It is the same standard that connects Claude to databases, file systems, web APIs, and other software. The Revit implementation is a custom bridge that I built and maintain, and it is what makes the whole thing work inside your Autodesk environment.</p>
+
+        <h2 id="how-it-works">How it works in practice</h2>
+        <p>You open Claude Desktop. Revit is already running with your project open. The MCP connection is active in the background. From there, you just type what you need.</p>
+        <p>Some real examples of what that looks like:</p>
         <ul>
-          <li>Find all walls where the "Fire Rating" parameter is empty</li>
-          <li>Count how many doors are in each phase of the project</li>
-          <li>Set the "BIM Status" parameter to "Coordinated" for every structural column on Level 3</li>
-          <li>Export a list of all rooms with their area, department, and occupancy to CSV</li>
-          <li>Flag every element where the mark parameter does not match the naming convention</li>
-          <li>Update room finish parameters from an external spreadsheet</li>
+          <li>"List all rooms where the department parameter is blank."</li>
+          <li>"Set the fire rating on every door in Phase 2 to 90 minutes."</li>
+          <li>"Export all structural columns on Level 4 with their mark and base offset to a CSV."</li>
+          <li>"Find elements where the BIM status is 'In Progress' but the assigned discipline is empty."</li>
         </ul>
-        <p>The capability that separates MCP from a static script is conditional logic. You can give it instructions like "if the room area is over 500 SF and the occupancy type is Assembly, set the egress width to 72 inches." That kind of if/then reasoning is where natural language control really earns its place, and where one-click pyRevit buttons hit their limit.</p>
+        <p>The AI reads your model, reasons about what you asked, and either returns the information or makes the change. If anything is ambiguous, it asks a clarifying question before acting. If you want to see what it found before committing a bulk update, you can ask for a preview first.</p>
+        <p>Those four examples are a small slice of what is available. The full toolset covers parameter reads and bulk writes, conditional filtering, schedule creation, CSV exports, view filter management, element type changes, audit tools, selection sets, and more. The interface is always the same: you describe what you need in plain English.</p>
 
-        <h2 id="vs-pyrevit">How Revit MCP is different from pyRevit buttons</h2>
-        <p>Both tools automate Revit, but they solve different problems.</p>
-        <p>PyRevit buttons are best when the task is always the same: same inputs, same logic, same output every time. You click a button, it runs, done. That works well for things like bulk-relabeling split members, syncing room data from a known CSV format, or running a compliance audit against a fixed set of rules. The process is deterministic and repeatable.</p>
-        <p>Revit MCP is better when the task varies. Maybe the elements you need to update change project to project. Maybe the logic depends on parameter values you do not know in advance. Maybe you want to ask a question about your model ("how many elements have conflicting fire ratings?") without building a schedule or writing a query first. MCP handles that through conversation.</p>
-        <p>A lot of teams end up using both: pyRevit for the high-frequency, always-the-same tasks, and MCP for complex, one-off, or investigative work.</p>
+        <h2 id="vs-dynamo-pyrevit">MCP vs. Dynamo vs. pyRevit</h2>
+        <p>These three tools automate Revit, but they solve different problems. Here is how they compare:</p>
 
-        <h2 id="who-its-for">Who is Revit MCP built for?</h2>
-        <p>Revit MCP is built for BIM managers, project architects, and senior Revit users who spend meaningful time on model data work: audits, parameter management, coordination tasks, data exports. People who want to do that work faster without writing code or learning the Revit API.</p>
-        <p>You do not need any programming background. You do not need to know Python or Dynamo. You just need to be able to describe what you want in plain English, the same way you would describe it to a colleague.</p>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>How you use it</th>
+              <th>Best for</th>
+              <th>Requires coding?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>pyRevit buttons</td>
+              <td>Click a ribbon button</td>
+              <td>Repeatable, fixed-logic tasks</td>
+              <td>No (buttons are pre-built)</td>
+            </tr>
+            <tr>
+              <td>Dynamo</td>
+              <td>Build a node graph</td>
+              <td>Parametric geometry and data flows</td>
+              <td>Somewhat (visual scripting)</td>
+            </tr>
+            <tr>
+              <td>MCP + Claude</td>
+              <td>Type in plain English</td>
+              <td>Variable tasks, audits, one-offs</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>PyRevit is the right choice when the task is always identical: same inputs, same logic, same output. You build the button once (or I build it for you), and the team clicks it. Fast, reliable, no thinking required.</p>
+        <p>Dynamo is powerful for parametric geometry and complex data pipelines, but it has a real learning curve. Most non-technical users find it inaccessible, and graphs can break when the model changes in ways the graph did not anticipate.</p>
+        <p>MCP is the right choice when the task varies. Different parameters to check each project, different elements to target, conditions you want to describe rather than hardcode. You do not need to know the Revit API or build anything. You just describe what you want, and the AI figures out how to get it.</p>
+        <p>A lot of firms end up using all three in combination: pyRevit for the high-frequency, always-the-same tasks, Dynamo for complex geometry workflows, and MCP for investigative work, audits, and anything that does not fit neatly into a fixed script.</p>
+
+        <h2 id="what-revit-tasks">Which Revit tasks MCP handles well</h2>
+        <p>MCP is particularly strong in four areas:</p>
+        <p><strong>Parameter audits.</strong> Finding elements with missing, inconsistent, or conflicting parameter values across a large model. This is painful to do manually and time-consuming to build a schedule for every possible condition. With MCP, you just ask.</p>
+        <p><strong>Bulk updates.</strong> Changing parameter values across a set of elements defined by criteria you describe. Change 20 elements or 2,000, the workflow is the same conversation.</p>
+        <p><strong>Data export.</strong> Pulling element data into a structured format, typically CSV, for coordination, owner reporting, or handoff. No schedule required, no export configuration to set up.</p>
+        <p><strong>One-off investigations.</strong> "How many elements in this model have a conflicting fire rating?" is not worth building a schedule for if you only need the answer once. With MCP, you ask, you get the answer, and you move on.</p>
+
+        <h2 id="who-its-for">Who it is for</h2>
+        <p>MCP is built for BIM managers, project architects, and senior Revit users who spend real time on model data work: audits, parameter management, coordination reporting, data cleanup before milestones. If you are comfortable in Revit but do not want to write Python or learn Dynamo just to answer a data question, this is for you.</p>
+        <p>You do not need any programming background to use it. If you can describe what you want in plain English, you can use it. That is the whole point.</p>
         <p>It earns its keep on any project where you have real data management work to do. The value is in the type of work, not the size of the model. A 30-unit residential project with inconsistent parameter data is just as good a use case as a 500,000 SF hospital.</p>
 
-        <h2 id="see-it-in-action">See it in action</h2>
-        <p>The best way to understand what Revit MCP can do is to watch it. This demo covers the full range: querying elements, bulk parameter updates, schedule creation, and CSV export, all through natural language with no coding required.</p>
-
-        <div class="article-video">
-          <div class="article-video__frame">
-            <iframe src="https://www.youtube.com/embed/FYK9sjsp464" title="Revit MCP: Control Revit with AI and Natural Language (Full Demo)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="article-video__caption">
-            <span>Demo · Revit MCP v1.0</span>
-            <span>Watch on YouTube ↗</span>
-          </div>
-        </div>
-
-        <p>If you want to see what this could look like for your team's workflows, schedule a free demo and we can walk through it together.</p>
-
         <div class="article-callout">
-          <div class="article-callout__label">Founding pilot</div>
-          <p>The first firms to sign on get 30 days of full access at no cost. No subscription, no onboarding fee. The only ask is a 15-minute feedback call at the end of the trial. <a href="pricing.html#get-in-touch">Apply for a pilot spot</a>.</p>
+          <div class="article-callout__label">See it in action</div>
+          <p>The fastest way to understand what MCP can do in Revit is to watch it on a real model. <a href="blog-revit-mcp-natural-language-control.html">Read the full walkthrough</a> or <a href="pricing.html#get-in-touch">request a pilot spot</a> to try it on your own project.</p>
         </div>
 
         <div class="article-tags">
           <span class="article-tags__label">Filed under</span>
           <span class="article-tag">Revit MCP</span>
-          <span class="article-tag">Claude AI</span>
-          <span class="article-tag">Natural language</span>
           <span class="article-tag">BIM automation</span>
+          <span class="article-tag">Claude AI</span>
+          <span class="article-tag">pyRevit</span>
+          <span class="article-tag">Dynamo</span>
         </div>
       </article>
 
@@ -669,25 +532,25 @@ img { max-width: 100%; display: block; }
         <nav class="toc" aria-label="Table of contents">
           <div class="toc__label">On this page</div>
           <ol class="toc__list" id="toc-list">
-            <li><a href="#what-is-mcp">What is Revit MCP?</a></li>
-            <li><a href="#what-can-you-do">What you can do</a></li>
-            <li><a href="#vs-pyrevit">MCP vs. pyRevit</a></li>
-            <li><a href="#who-its-for">Who it's built for</a></li>
-            <li><a href="#see-it-in-action">See it in action</a></li>
+            <li><a href="#what-is-mcp">What MCP actually is</a></li>
+            <li><a href="#how-it-works">How it works in practice</a></li>
+            <li><a href="#vs-dynamo-pyrevit">MCP vs. Dynamo vs. pyRevit</a></li>
+            <li><a href="#what-revit-tasks">Which tasks it handles</a></li>
+            <li><a href="#who-its-for">Who it's for</a></li>
           </ol>
         </nav>
 
         <div class="cta-card">
           <div class="cta-card__label">Next steps</div>
-          <h3>Want to see it running on your model?</h3>
-          <p>Watch the live demos or get a quote tailored to your team size and workflows.</p>
+          <h3>Want to see it on your model?</h3>
+          <p>Pilot spots are open. 30 days free, no onboarding fee, direct support from me throughout.</p>
           <div class="cta-card__actions">
-            <a href="index.html#demos" class="cta-card__action">
-              <span>See it in action</span>
+            <a href="blog-revit-mcp-natural-language-control.html" class="cta-card__action">
+              <span>Read the full walkthrough</span>
               <svg class="ic"><use href="#i-arrow-right"/></svg>
             </a>
             <a href="pricing.html#get-in-touch" class="cta-card__action cta-card__action--primary">
-              <span>Get a custom quote</span>
+              <span>Apply for a pilot spot</span>
               <svg class="ic"><use href="#i-arrow-right"/></svg>
             </a>
           </div>
@@ -698,58 +561,18 @@ img { max-width: 100%; display: block; }
   </div>
 </section>
 
-<!-- BLOG FEED -->
-<section class="blog-feed" aria-label="More from the blog">
-  <div class="container">
-    <div class="blog-feed__head" style="display:block;margin-bottom:28px;">
-      <div class="eyebrow" style="color:var(--bas-teal)"><span>From the blog</span></div>
-    </div>
-
-    <div class="blog-feed__grid">
-      <article class="post-card post-card--current" aria-current="page">
-        <div class="post-card__meta">
-          <span class="post-card__youre-here">You&rsquo;re reading</span>
-          <span class="post-card__meta-dot"></span>
-          <span>Apr 28, 2026</span>
-        </div>
-        <h3 class="post-card__title">How to Control Revit with Natural Language Using MCP and Claude AI</h3>
-        <p class="post-card__excerpt">A walkthrough of Revit MCP, covering plain-English commands, conditional bulk updates, and schedule and CSV exports without writing code.</p>
-        <div class="post-card__foot">
-          <span class="post-card__readtime">7 min read</span>
-          <span class="post-card__tag" style="background:rgba(255,255,255,0.08);color:#fff">Product walkthrough</span>
-        </div>
-      </article>
-
-      <a href="blog-what-is-mcp-in-revit-bim.html" class="post-card">
-        <div class="post-card__meta">
-          <span class="post-card__tag">Explainer</span>
-          <span class="post-card__meta-dot"></span>
-          <span>May 18, 2026</span>
-        </div>
-        <h3 class="post-card__title">What Is MCP in Revit and BIM? A Plain-English Explanation</h3>
-        <p class="post-card__excerpt">MCP connects Claude directly to your live Revit session. Here is what it actually means, how it compares to Dynamo and pyRevit, and which tasks it handles best.</p>
-        <div class="post-card__foot">
-          <span class="post-card__readtime">6 min read</span>
-          <span class="post-card__cta">Read <svg class="ic" style="width:13px;height:13px"><use href="#i-arrow-right"/></svg></span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
 <!-- FINAL CTA -->
 <section class="final-cta" id="final-cta">
   <div class="container final-cta__inner">
     <div class="eyebrow" style="justify-content:center;display:inline-flex;color:var(--bas-teal)"><span>Ready when you are</span></div>
     <h2>Ready to cut the manual work?</h2>
-    <p>Tell me what you're working with and I'll put together a custom quote. Takes about 2 minutes. No sales call, no pressure. Direct response from me within 48 hours.</p>
+    <p>Tell me what you are working with and I will put together a custom quote. Takes about 2 minutes. No sales call, no pressure. Direct response from me within 48 hours.</p>
     <div class="final-cta__buttons">
       <a href="pricing.html#get-in-touch" class="btn btn--teal">Get a Custom Quote <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow-right"/></svg></a>
       <a href="mailto:bimautomationstudio@gmail.com" class="btn btn--ghost"><svg class="ic" style="width:14px;height:14px"><use href="#i-mail"/></svg> Email Eric directly</a>
     </div>
     <div class="final-cta__bio">
-      <p style="margin:0"><strong>About me.</strong> I'm a BIM specialist with 15 years doing production shop drawings and structural coordination, where a wrong parameter costs real money. I built these tools for myself because I was spending hours on tasks that should take minutes, and I was tired of it. I'm still doing this work every day, which means every automation I build comes from a real frustration on a real project, not a whiteboard.</p>
+      <p style="margin:0"><strong>About me.</strong> I am a BIM specialist with 15 years doing production shop drawings and structural coordination, where a wrong parameter costs real money. I built these tools for myself because I was spending hours on tasks that should take minutes, and I was tired of it. I am still doing this work every day, which means every automation I build comes from a real frustration on a real project, not a whiteboard.</p>
       <p class="final-cta__sig">Eric U.</p>
     </div>
   </div>
@@ -779,7 +602,7 @@ img { max-width: 100%; display: block; }
         <h4>Blog</h4>
         <ul>
           <li><a href="blog-revit-mcp-natural-language-control.html">MCP Walkthrough</a></li>
-          <li><a href="blog-what-is-mcp-in-revit-bim.html">What Is MCP in Revit?</a></li>
+          <li><a href="what-is-mcp-in-revit-bim.html">What Is MCP in Revit?</a></li>
           <li><a href="index.html#demos">Demo videos</a></li>
           <li><a href="index.html#how">How it works</a></li>
         </ul>
@@ -801,15 +624,12 @@ img { max-width: 100%; display: block; }
 </footer>
 
 <script>
-  // Mobile nav toggle
   document.getElementById('burger').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('open');
   });
   document.querySelectorAll('#nav-links a').forEach(function(a){
     a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
   });
-
-  // Active TOC highlighting
   (function() {
     var headings = Array.prototype.slice.call(document.querySelectorAll('.article h2[id]'));
     var tocLinks = document.querySelectorAll('#toc-list a');
@@ -827,9 +647,7 @@ img { max-width: 100%; display: block; }
       for (var i = 0; i < headings.length; i++) {
         if (headings[i].getBoundingClientRect().top - threshold <= 0) {
           active = headings[i].id;
-        } else {
-          break;
-        }
+        } else { break; }
       }
       setActive(active);
     }
