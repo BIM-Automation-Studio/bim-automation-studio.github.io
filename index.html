@@ -1169,6 +1169,18 @@ img { max-width: 100%; display: block; }
   color: var(--bas-teal); letter-spacing: 0.02em;
 }
 @media (max-width: 700px) { .savings-grid { grid-template-columns: 1fr; } }
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: var(--bas-coral); color: #fff;
+  padding: 14px 22px; border-radius: var(--radius-pill);
+  font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(233,69,96,0.45);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.floating-cta:hover { background: #d63d56; transform: translateY(-2px); box-shadow: 0 6px 28px rgba(233,69,96,0.55); color: #fff; }
 </style>
 <section class="section section--soft" id="roi">
   <div class="container">
@@ -1291,6 +1303,8 @@ img { max-width: 100%; display: block; }
     a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
   });
 </script>
+
+<a href="pricing.html#get-in-touch" class="floating-cta" onclick="gtag('event','cta_click',{event_category:'floating',event_label:'index_floating'})">Apply for Pilot Access</a>
 
 </body>
 </html>

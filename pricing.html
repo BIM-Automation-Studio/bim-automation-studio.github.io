@@ -3,10 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing · BIM Automation Studio</title>
-<meta name="description" content="Per-seat subscriptions with no hidden fees. Volume discounts, annual savings, and a free 30-day founding-pilot offer.">
+<title>Revit Automation Pricing — pyRevit Buttons &amp; MCP Tools | BIM Automation Studio</title>
+<meta name="description" content="Per-seat subscriptions with no hidden fees. pyRevit buttons from $50/seat/mo, MCP AI tools from $60/seat/mo. Volume discounts, annual savings, free 30-day founding pilot.">
 <link rel="icon" href="favicon.png">
 <link rel="canonical" href="https://bim-automation-studio.github.io/pricing.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bim-automation-studio.github.io/pricing.html">
+<meta property="og:title" content="Revit Automation Pricing — pyRevit Buttons &amp; MCP Tools | BIM Automation Studio">
+<meta property="og:description" content="Per-seat subscriptions for custom Revit automation. pyRevit buttons from $50/seat/mo, MCP AI tools from $60/seat/mo. No hidden fees, cancel anytime.">
+<meta property="og:image" content="https://bim-automation-studio.github.io/assets/logo.png">
+<meta property="og:site_name" content="BIM Automation Studio">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revit Automation Pricing | BIM Automation Studio">
+<meta name="twitter:description" content="Per-seat pricing for pyRevit buttons and MCP AI tools. Start with 1 seat, no minimums, cancel anytime.">
+<meta name="twitter:image" content="https://bim-automation-studio.github.io/assets/logo.png">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
 <script>
@@ -149,7 +163,7 @@ img { max-width: 100%; display: block; }
 .product--mcp { border-top-color: var(--bas-coral); }
 .product--bundle {
   border-top-color: transparent;
-  background: linear-gradient(180deg, #fff 0%, #fff 100%);
+  background: #fff;
   position: relative;
 }
 .product--bundle::before {
@@ -377,6 +391,67 @@ img { max-width: 100%; display: block; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
   .pillars { grid-template-columns: 1fr; }
 }
+
+/* ── SECTION ACCORDIONS (§03 examples, §04 impl) ── */
+.acc-list { display: flex; flex-direction: column; gap: 10px; }
+.acc-item { border: 1px solid var(--bas-line); border-radius: var(--radius-lg); overflow: hidden; background: #fff; }
+.acc-item > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 16px 20px; transition: background 0.2s; user-select: none; }
+.acc-item > summary::-webkit-details-marker { display: none; }
+.acc-item > summary:hover { background: var(--bas-paper); }
+.acc-item[open] > summary { background: var(--bas-paper); border-bottom: 1px solid var(--bas-line); }
+.acc-item > summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offset: -2px; }
+.acc-item__tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-teal); font-weight: 600; flex-shrink: 0; min-width: 170px; }
+.acc-item__label { flex: 1; font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--bas-navy); }
+.acc-item__hint { font-family: var(--font-mono); font-size: 0.88rem; font-weight: 700; flex-shrink: 0; margin-right: 12px; }
+.acc-item__hint--coral { color: var(--bas-coral); }
+.acc-item__hint--blue  { color: var(--bas-blue); }
+.acc-item__toggle { width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; background: var(--bas-paper); color: var(--bas-blue); display: grid; place-items: center; position: relative; transition: transform 0.25s, background 0.25s; }
+.acc-item[open] .acc-item__toggle { transform: rotate(45deg); background: var(--bas-blue); color: #fff; }
+.acc-item__toggle::before { content:""; position:absolute; width:10px; height:1.5px; background:currentColor; }
+.acc-item__toggle::after  { content:""; position:absolute; width:1.5px; height:10px; background:currentColor; }
+.acc-item__body { padding: 22px 20px; }
+
+/* ── MID-CTA SECTION ── */
+.mid-cta {
+  background: linear-gradient(135deg, var(--bas-navy) 0%, #16213e 60%, #0f3460 100%);
+  padding: 60px 0; position: relative; overflow: hidden; text-align: center;
+}
+.mid-cta::before { content:""; position:absolute; inset:0; background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); opacity: 0.5; pointer-events: none; }
+.mid-cta__inner { position: relative; z-index: 1; max-width: 580px; margin: 0 auto; }
+.mid-cta__eyebrow {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bas-gold); font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.mid-cta__eyebrow::before { content:""; width:24px; height:1px; background: var(--bas-gold); display:inline-block; }
+.mid-cta__eyebrow::after  { content:""; width:24px; height:1px; background: var(--bas-gold); display:inline-block; }
+.mid-cta h2 {
+  font-size: clamp(1.6rem, 2.5vw + 0.5rem, 2.2rem); font-weight: 700; color: #fff;
+  margin: 0 0 14px; line-height: 1.15;
+}
+.mid-cta p { color: rgba(255,255,255,0.82); font-size: 1rem; line-height: 1.6; margin: 0 0 28px; }
+
+/* ── QUICK FORM (mid-CTA inline) ── */
+.quick-form { width: 100%; max-width: 560px; margin: 0 auto; }
+.quick-form__row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.quick-form__row input[type=text], .quick-form__row input[type=email] { flex: 1; min-width: 150px; padding: 13px 16px; border: 1px solid rgba(255,255,255,0.28); border-radius: var(--radius-sm); background: rgba(255,255,255,0.12); color: #fff; font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.2s, background 0.2s; }
+.quick-form__row input::placeholder { color: rgba(255,255,255,0.5); }
+.quick-form__row input:focus { outline: none; border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.18); }
+.quick-form__note { font-family: var(--font-mono); font-size: 0.72rem; color: rgba(255,255,255,0.55); margin: 10px 0 0; letter-spacing: 0.04em; text-align: center; }
+
+/* ── FLOATING CTA ── */
+.floating-cta {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: var(--bas-coral); color: #fff;
+  padding: 14px 22px; border-radius: var(--radius-pill);
+  font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(233,69,96,0.45);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.floating-cta:hover { background: #d63d56; transform: translateY(-2px); box-shadow: 0 6px 28px rgba(233,69,96,0.55); color: #fff; }
+
+/* ── FOCUS VISIBLE for all summary elements ── */
+details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offset: 2px; border-radius: 4px; }
 </style>
 </head>
 
@@ -609,6 +684,25 @@ img { max-width: 100%; display: block; }
 </section>
 
 
+<!-- MID-PAGE CTA -->
+<section class="mid-cta">
+  <div class="mid-cta__inner">
+    <div class="mid-cta__eyebrow">Founding pilot</div>
+    <h2>Ready to see it in your workflow?</h2>
+    <p>The first firms get 30 days of full access free. No subscription, no onboarding fee. Apply and I'll respond within 48 hours.</p>
+    <form class="quick-form" action="https://formspree.io/f/mgoldgad" method="POST" onsubmit="gtag('event','form_submit',{event_category:'mid_cta',event_label:'pricing_quick_form'})">
+      <input type="hidden" name="source" value="quick-form">
+      <div class="quick-form__row">
+        <input type="text" name="name" placeholder="Your name" required autocomplete="name">
+        <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+        <button type="submit" class="btn btn--primary">Apply Free →</button>
+      </div>
+      <p class="quick-form__note">30 days free · No credit card · Response within 48 hrs</p>
+    </form>
+  </div>
+</section>
+
+
 <!-- REAL-WORLD EXAMPLES -->
 <section class="section">
   <div class="container">
@@ -616,42 +710,60 @@ img { max-width: 100%; display: block; }
     <h2 class="h-section">Three example firms.</h2>
     <p class="lede">Configurations representative of pyRevit-only, MCP-only, and bundle-deployment teams. Apply your own seat count and add-ons to estimate your number.</p>
 
-    <div class="examples">
-      <div class="example">
-        <div class="example__tag">Small firm · pyRevit only</div>
-        <h3>5 seats, 10 buttons</h3>
-        <div class="example__rows">
-          <div class="example__row"><span>Base</span><b>$50/seat</b></div>
-          <div class="example__row"><span>5 add'l buttons (×$5)</span><b>+$25/seat</b></div>
-          <div class="example__row"><span>Effective per seat</span><b>$75/seat</b></div>
-          <div class="example__row"><span>Volume tier (1–5)</span><b>–</b></div>
+    <div class="acc-list">
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Small firm · pyRevit only</span>
+          <span class="acc-item__label">5 seats, 10 buttons</span>
+          <span class="acc-item__hint acc-item__hint--coral">$375 / mo</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <div class="example__rows">
+            <div class="example__row"><span>Base</span><b>$50/seat</b></div>
+            <div class="example__row"><span>5 add'l buttons (×$5)</span><b>+$25/seat</b></div>
+            <div class="example__row"><span>Effective per seat</span><b>$75/seat</b></div>
+            <div class="example__row"><span>Volume tier (1–5)</span><b>–</b></div>
+          </div>
+          <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$375<small> / mo</small></span></div>
         </div>
-        <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$375<small> / mo</small></span></div>
-      </div>
+      </details>
 
-      <div class="example">
-        <div class="example__tag">Medium firm · MCP only</div>
-        <h3>15 seats, 5 tools</h3>
-        <div class="example__rows">
-          <div class="example__row"><span>Base</span><b>$60/seat</b></div>
-          <div class="example__row"><span>Tools included</span><b>5 simple</b></div>
-          <div class="example__row"><span>Volume tier (6–15)</span><b>−8%</b></div>
-          <div class="example__row"><span>Effective per seat</span><b>$55/seat</b></div>
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Medium firm · MCP only</span>
+          <span class="acc-item__label">15 seats, 5 tools</span>
+          <span class="acc-item__hint acc-item__hint--coral">$825 / mo</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <div class="example__rows">
+            <div class="example__row"><span>Base</span><b>$60/seat</b></div>
+            <div class="example__row"><span>Tools included</span><b>5 simple</b></div>
+            <div class="example__row"><span>Volume tier (6–15)</span><b>−8%</b></div>
+            <div class="example__row"><span>Effective per seat</span><b>$55/seat</b></div>
+          </div>
+          <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$825<small> / mo</small></span></div>
         </div>
-        <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$825<small> / mo</small></span></div>
-      </div>
+      </details>
 
-      <div class="example">
-        <div class="example__tag">Large firm · Bundle</div>
-        <h3>35 seats, full bundle</h3>
-        <div class="example__rows">
-          <div class="example__row"><span>Bundle base</span><b>$99/seat</b></div>
-          <div class="example__row"><span>Volume tier (31+)</span><b>−$14/seat</b></div>
-          <div class="example__row"><span>vs. buying separately</span><b>23% off $110</b></div>
-          <div class="example__row"><span>Effective per seat</span><b>$85/seat</b></div>
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Large firm · Bundle</span>
+          <span class="acc-item__label">35 seats, full bundle</span>
+          <span class="acc-item__hint acc-item__hint--coral">$2,975 / mo</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <div class="example__rows">
+            <div class="example__row"><span>Bundle base</span><b>$99/seat</b></div>
+            <div class="example__row"><span>Volume tier (31+)</span><b>−$14/seat</b></div>
+            <div class="example__row"><span>vs. buying separately</span><b>23% off $110</b></div>
+            <div class="example__row"><span>Effective per seat</span><b>$85/seat</b></div>
+          </div>
+          <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$2,975<small> / mo</small></span></div>
         </div>
-        <div class="example__total"><span class="example__total-label">Monthly total</span><span class="example__total-amt">$2,975<small> / mo</small></span></div>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -664,25 +776,42 @@ img { max-width: 100%; display: block; }
     <h2 class="h-section">Implementation costs.</h2>
     <p class="lede">One-time fees for installation and setup. The pilot program waives the MCP onboarding fee.</p>
 
-    <div class="impl">
-      <div class="impl-card">
-        <div class="impl-card__type"><b class="opt">Optional</b> · pyRevit setup</div>
-        <h3>pyRevit onboarding</h3>
-        <div class="impl-card__price">$750 <small>one-time</small></div>
-        <p>Installation validation, deployment guide for IT, and a 60–90 minute training session for the team. Most firms self-install using the included guide.</p>
-      </div>
-      <div class="impl-card">
-        <div class="impl-card__type"><b>Required</b> · MCP setup</div>
-        <h3>MCP onboarding</h3>
-        <div class="impl-card__price">$1,250 <small>one-time</small></div>
-        <p>Server setup, Claude Desktop configuration, and end-to-end testing. Required because the MCP server has firm-specific configuration that needs to be done correctly the first time.</p>
-      </div>
-      <div class="impl-card">
-        <div class="impl-card__type"><b class="opt">Optional</b> · As-needed</div>
-        <h3>Assisted deployment</h3>
-        <div class="impl-card__price">$150–175 <small>/ hour</small></div>
-        <p>Hands-on help with rollout, IT integration, custom training, or troubleshooting. Billed in 30-minute increments. Most teams never need this.</p>
-      </div>
+    <div class="acc-list">
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Optional · pyRevit setup</span>
+          <span class="acc-item__label">pyRevit onboarding</span>
+          <span class="acc-item__hint acc-item__hint--blue">$750 one-time</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <p>Installation validation, deployment guide for IT, and a 60–90 minute training session for the team. Most firms self-install using the included guide.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Required · MCP setup</span>
+          <span class="acc-item__label">MCP onboarding</span>
+          <span class="acc-item__hint acc-item__hint--blue">$1,250 one-time</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <p>Server setup, Claude Desktop configuration, and end-to-end testing. Required because the MCP server has firm-specific configuration that needs to be done correctly the first time.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
+        <summary>
+          <span class="acc-item__tag">Optional · As-needed</span>
+          <span class="acc-item__label">Assisted deployment</span>
+          <span class="acc-item__hint acc-item__hint--blue">$150–175 / hr</span>
+          <span class="acc-item__toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="acc-item__body">
+          <p>Hands-on help with rollout, IT integration, custom training, or troubleshooting. Billed in 30-minute increments. Most teams never need this.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -879,6 +1008,8 @@ img { max-width: 100%; display: block; }
     a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
   });
 </script>
+
+<a href="#get-in-touch" class="floating-cta" onclick="gtag('event','cta_click',{event_category:'floating',event_label:'pricing_floating'})">Apply for Pilot Access</a>
 
 </body>
 </html>
