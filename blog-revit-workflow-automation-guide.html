@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What Is MCP in Revit and BIM? A Plain-English Explanation · BIM Automation Studio</title>
-<meta name="description" content="MCP (Model Context Protocol) lets an AI like Claude connect directly to your live Revit session. Here's what that means, what you can do with it, and how it compares to Dynamo and pyRevit.">
+<title>Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI · BIM Automation Studio</title>
+<meta name="description" content="A clear breakdown of Revit automation in 2026: what pyRevit handles, what MCP and AI unlock, and how AEC firms are combining them to cut hours of manual model work every week.">
 <link rel="icon" href="favicon.png">
-<link rel="canonical" href="https://bim-automation-studio.github.io/blog-what-is-mcp-in-revit-bim.html">
+<link rel="canonical" href="https://bim-automation-studio.github.io/blog-revit-workflow-automation-guide.html">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "What Is MCP in Revit and BIM? A Plain-English Explanation",
+  "headline": "Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI",
   "author": { "@type": "Person", "name": "Eric Upshur" },
   "publisher": { "@type": "Organization", "name": "BIM Automation Studio" },
-  "datePublished": "2026-05-18"
+  "datePublished": "2026-06-07"
 }
 </script>
 
@@ -187,19 +187,41 @@ img { max-width: 100%; display: block; }
 .article a { color: var(--bas-blue); border-bottom: 1px solid rgba(60,109,195,0.3); }
 .article a:hover { color: var(--bas-teal); border-bottom-color: var(--bas-teal); }
 
-.compare-table { width: 100%; border-collapse: collapse; margin: 28px 0 32px; font-size: 0.95rem; }
-.compare-table th {
-  background: var(--bas-navy); color: #fff;
-  font-family: var(--font-display); font-weight: 600;
-  padding: 12px 16px; text-align: left;
-  font-size: 0.82rem; letter-spacing: 0.04em;
+.tier-block {
+  border: 1px solid var(--bas-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 28px 0 36px;
 }
-.compare-table th:first-child { border-radius: var(--radius-sm) 0 0 0; }
-.compare-table th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
-.compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--bas-line); color: var(--bas-ink); vertical-align: top; }
-.compare-table tr:last-child td { border-bottom: none; }
-.compare-table tr:nth-child(even) td { background: var(--bas-paper); }
-.compare-table td:first-child { font-weight: 600; color: var(--bas-navy); white-space: nowrap; }
+.tier-block__header {
+  background: var(--bas-navy);
+  padding: 16px 22px;
+  display: flex; align-items: center; gap: 14px;
+}
+.tier-block__num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bas-teal);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
+  color: #fff; flex-shrink: 0;
+}
+.tier-block__title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1rem; color: #fff; line-height: 1.2;
+}
+.tier-block__subtitle {
+  font-family: var(--font-mono); font-size: 0.72rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--bas-teal); margin-top: 2px;
+}
+.tier-block__body {
+  padding: 20px 22px;
+  background: #fff;
+}
+.tier-block__body p { margin: 0 0 12px; font-size: 0.97rem; color: var(--bas-ink); }
+.tier-block__body p:last-child { margin: 0; }
+.tier-block__body ul { margin: 10px 0 0; }
+.tier-block__body ul li { font-size: 0.95rem; }
 
 .article-callout {
   background: var(--bas-paper);
@@ -273,10 +295,7 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--bas-teal); font-weight: 600; margin-bottom: 10px;
 }
-.cta-card h3 {
-  font-family: var(--font-display); font-size: 1.15rem; font-weight: 700;
-  color: #fff; line-height: 1.3; margin: 0 0 14px;
-}
+.cta-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: #fff; line-height: 1.3; margin: 0 0 14px; }
 .cta-card p { font-size: 0.88rem; color: var(--bas-on-navy-mut); line-height: 1.5; margin: 0 0 18px; }
 .cta-card__actions { display: flex; flex-direction: column; gap: 8px; }
 .cta-card__action {
@@ -370,8 +389,6 @@ img { max-width: 100%; display: block; }
   .article-shell { padding: 40px 0 64px; }
   .article { font-size: 1rem; }
   .article h2 { font-size: 1.35rem; margin-top: 40px; }
-  .compare-table { font-size: 0.85rem; }
-  .compare-table td, .compare-table th { padding: 9px 10px; }
   .footer__top { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
 }
@@ -395,46 +412,35 @@ img { max-width: 100%; display: block; }
   display: flex; flex-direction: column; gap: 14px;
   flex: 0 0 300px; min-width: 300px;
   padding: 28px;
-  background: #fff;
-  border: 1px solid var(--bas-line);
-  border-radius: var(--radius-lg);
+  background: #fff; border: 1px solid var(--bas-line); border-radius: var(--radius-card);
   text-decoration: none; color: inherit;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  min-height: 240px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
 }
-.post-card--current { background: var(--bas-navy); color: #fff; border-color: var(--bas-navy); cursor: default; flex: 0 0 320px; min-width: 320px; }
-.post-card--current::before { content:""; position:absolute; inset:0; border-radius: var(--radius-lg); background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); opacity: 0.45; pointer-events: none; }
-.post-card--current > * { position: relative; z-index: 1; }
-.post-card--upcoming { border-style: dashed; background: transparent; cursor: default; }
-.post-card:not(.post-card--current):not(.post-card--upcoming):hover { transform: translateY(-2px); border-color: var(--bas-teal); box-shadow: var(--shadow-lift); }
-.post-card__meta { display: flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-ink-muted); }
-.post-card--current .post-card__meta { color: var(--bas-teal); }
-.post-card__meta-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.7; }
-.post-card__tag { background: rgba(0,173,181,0.1); color: var(--bas-teal); padding: 3px 9px; border-radius: var(--radius-pill); }
-.post-card--current .post-card__tag { background: rgba(0,173,181,0.18); }
-.post-card__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; line-height: 1.3; color: var(--bas-navy); margin: 0; }
-.post-card--current .post-card__title { color: #fff; font-size: 1.3rem; }
-.post-card--upcoming .post-card__title { color: var(--bas-ink-muted); font-style: italic; font-weight: 500; }
-.post-card__excerpt { color: var(--bas-ink-muted); font-size: 0.92rem; line-height: 1.55; margin: 0; }
-.post-card--current .post-card__excerpt { color: var(--bas-on-navy-mut); }
-.post-card__foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 12px; }
-.post-card__readtime { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--bas-ink-muted); }
-.post-card--current .post-card__readtime { color: var(--bas-on-navy-dim); }
-.post-card__cta { font-family: var(--font-display); font-weight: 600; font-size: 0.86rem; color: var(--bas-teal); display: inline-flex; align-items: center; gap: 6px; }
-.post-card__cta svg { width: 14px; height: 14px; transition: transform 0.2s ease; }
-.post-card:hover .post-card__cta svg { transform: translateX(3px); }
-.post-card__youre-here { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+.post-card:hover { border-color: var(--bas-teal); box-shadow: 0 4px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.post-card--current { background: var(--bas-navy); color: #fff; border-color: transparent; cursor: default; flex: 0 0 320px; min-width: 320px; }
+.post-card--current:hover { transform: none; box-shadow: none; border-color: transparent; }
+.post-card__meta { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--bas-ink-muted); flex-wrap: wrap; }
+.post-card--current .post-card__meta { color: rgba(255,255,255,0.55); }
+.post-card__meta-dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; opacity: 0.4; }
+.post-card__tag { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; background: rgba(0,0,0,0.05); border-radius: 4px; color: var(--bas-ink-muted); }
+.post-card__title { font-family: var(--font-display); font-size: 1.08rem; font-weight: 700; line-height: 1.3; margin: 0; color: var(--bas-navy); flex: 1; }
+.post-card--current .post-card__title { color: #fff; }
+.post-card__excerpt { font-size: 0.9rem; color: var(--bas-ink-muted); line-height: 1.55; margin: 0; }
+.post-card--current .post-card__excerpt { color: rgba(255,255,255,0.7); }
+.post-card__foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--bas-line); font-size: 0.8rem; }
+.post-card--current .post-card__foot { border-top-color: rgba(255,255,255,0.12); }
+.post-card__readtime { color: var(--bas-ink-muted); }
+.post-card--current .post-card__readtime { color: rgba(255,255,255,0.5); }
+.post-card__cta { display: flex; align-items: center; gap: 4px; color: var(--bas-teal); font-weight: 600; font-size: 0.82rem; }
+.post-card__youre-here { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-coral); }
 .post-card__youre-here::before { content:""; width: 6px; height: 6px; border-radius: 50%; background: var(--bas-coral); box-shadow: 0 0 8px rgba(233,69,96,0.7); }
-.post-card__upcoming-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bas-ink-muted); }
-.post-card__upcoming-badge::before { content:"···"; letter-spacing: 0.05em; color: var(--bas-coral); }
 
 /* ── FLOATING CTA ── */
 .floating-cta {
   position: fixed; bottom: 28px; right: 28px; z-index: 999;
   background: var(--bas-coral); color: #fff;
   padding: 14px 22px; border-radius: var(--radius-pill);
-  font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.9rem;
   text-decoration: none; white-space: nowrap;
   box-shadow: 0 4px 20px rgba(233,69,96,0.45);
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -481,11 +487,11 @@ img { max-width: 100%; display: block; }
         <span class="sep">/</span>
         <a href="blog.html">Blog</a>
         <span class="sep">/</span>
-        <span style="color:#fff">What is MCP in Revit?</span>
+        <span style="color:#fff">Workflow automation guide</span>
       </div>
-      <span class="article-hero__tag"><svg class="ic" style="width:11px;height:11px"><use href="#i-sparkles"/></svg> Explainer</span>
-      <h1>What Is MCP in Revit and BIM? A Plain-English Explanation</h1>
-      <p class="article-hero__deck">MCP (Model Context Protocol) is the layer that connects an AI like Claude to your live Revit session. Here is what it actually means, how it compares to Dynamo and pyRevit, and which tasks it is built for.</p>
+      <span class="article-hero__tag"><svg class="ic" style="width:11px;height:11px"><use href="#i-sparkles"/></svg> Guide</span>
+      <h1>Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI</h1>
+      <p class="article-hero__deck">A clear breakdown of what Revit automation looks like today, from one-click pyRevit buttons to AI-driven natural language control, and how firms are combining both to eliminate hours of manual model work every week.</p>
       <div class="article-hero__byline">
         <div class="byline__avatar">EU</div>
         <div class="byline__meta">
@@ -495,9 +501,9 @@ img { max-width: 100%; display: block; }
         <div class="byline__sep"></div>
         <div class="byline__date">
           <small>Published</small>
-          <span>May 18, 2026</span>
+          <span>Jun 7, 2026</span>
         </div>
-        <span class="byline__readtime">6 min read</span>
+        <span class="byline__readtime">4 min read</span>
       </div>
     </div>
   </div>
@@ -510,86 +516,91 @@ img { max-width: 100%; display: block; }
 
       <article class="article">
 
-        <h2 id="what-is-mcp">What MCP actually is</h2>
-        <p>MCP stands for Model Context Protocol. It is an open standard, developed by Anthropic, that lets an AI assistant connect directly to external tools and data sources. In the context of Revit, it means Claude (the AI) can talk to your live Revit session in real time: reading elements, querying parameters, and writing data back to the model.</p>
-        <p>Without MCP, Claude is like asking a knowledgeable colleague who has never seen your project. They can explain what a curtain wall is or how Revit phases work, but they have no visibility into what is actually in your model. MCP creates a live connection to your specific open project, so the AI is responding to real data, not general knowledge.</p>
-        <p>The protocol itself is not Revit-specific. It is the same standard that connects Claude to databases, file systems, web APIs, and other software. The Revit implementation is a custom bridge that I built and maintain, and it is what makes the whole thing work inside your Autodesk environment.</p>
+        <h2 id="whats-changed">What has changed in Revit automation</h2>
+        <p>Revit automation has been possible for years. Dynamo, the Revit API, and pyRevit have given BIM teams real tools to cut repetitive work. Over the past year, however, a new layer has entered the picture. AI models can now connect directly to a live Revit session and respond to plain-English instructions.</p>
+        <p>That changes what is accessible to non-developers. Before, meaningful automation usually required someone who could write Python or build Dynamo graphs. Now, a senior Revit user who has never written a line of code can query a 10,000-element model, run a conditional parameter audit, and export the results to CSV, all by describing what they want in a conversation.</p>
+        <p>Autodesk shipped their own MCP implementation in Revit 2027 as a read-only Tech Preview. The Revit MCP I've been running in production reads and writes: parameter updates, type assignments, view filters, selection sets, schedules, CSV exports, all through the same conversational interface against your live model.</p>
+        <p>This post breaks down what the automation landscape looks like today, where each tool fits, and how firms are putting both to work.</p>
 
-        <h2 id="how-it-works">How it works in practice</h2>
-        <p>You open Claude Desktop. Revit is already running with your project open. The MCP connection is active in the background. From there, you just type what you need.</p>
-        <p>Some real examples of what that looks like:</p>
-        <ul>
-          <li>"List all rooms where the department parameter is blank."</li>
-          <li>"Set the fire rating on every door in Phase 2 to 90 minutes."</li>
-          <li>"Export all structural columns on Level 4 with their mark and base offset to a CSV."</li>
-          <li>"Find elements where the BIM status is 'In Progress' but the assigned discipline is empty."</li>
-        </ul>
-        <p>The AI reads your model, reasons about what you asked, and either returns the information or makes the change. If anything is ambiguous, it asks a clarifying question before acting. If you want to see what it found before committing a bulk update, you can ask for a preview first.</p>
-        <p>Those four examples are a small slice of what is available. The full toolset covers parameter reads and bulk writes, conditional filtering, schedule creation, CSV exports, view filter management, element type changes, audit tools, selection sets, and more. The interface is always the same: you describe what you need in plain English.</p>
+        <h2 id="three-tiers">The three approaches to Revit automation</h2>
+        <p>It helps to think about Revit automation in three tiers, based on how the user interacts with the tool and what kind of task it handles best.</p>
 
-        <h2 id="vs-dynamo-pyrevit">MCP vs. Dynamo vs. pyRevit</h2>
-        <p>These three tools automate Revit, but they solve different problems. Here is how they compare:</p>
+        <div class="tier-block">
+          <div class="tier-block__header">
+            <div class="tier-block__num">1</div>
+            <div>
+              <div class="tier-block__title">One-click buttons (pyRevit)</div>
+              <div class="tier-block__subtitle">Fixed logic, repeatable tasks</div>
+            </div>
+          </div>
+          <div class="tier-block__body">
+            <p>PyRevit buttons live in the Revit ribbon. You click one, a Python script runs, something happens. The logic is baked in at build time. The same inputs always produce the same output.</p>
+            <p>This is the right approach for tasks your team runs constantly, where the process never changes. Common uses:</p>
+            <ul>
+              <li>Renaming views and sheets to match a firm's naming convention or submittal format</li>
+              <li>Syncing room data from a project standards spreadsheet into model parameters</li>
+              <li>Running a pre-submittal QC check against a project-specific list of required parameters</li>
+              <li>Setting default view properties across a new model based on firm templates</li>
+              <li>Tagging all untagged elements in a category with a single click</li>
+              <li>Exporting a sheet index with revision history to a standardized format</li>
+            </ul>
+          </div>
+        </div>
 
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>Tool</th>
-              <th>How you use it</th>
-              <th>Best for</th>
-              <th>Requires coding?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>pyRevit buttons</td>
-              <td>Click a ribbon button</td>
-              <td>Repeatable, fixed-logic tasks</td>
-              <td>No (buttons are pre-built)</td>
-            </tr>
-            <tr>
-              <td>Dynamo</td>
-              <td>Build a node graph</td>
-              <td>Parametric geometry and data flows</td>
-              <td>Somewhat (visual scripting)</td>
-            </tr>
-            <tr>
-              <td>MCP + Claude</td>
-              <td>Type in plain English</td>
-              <td>Variable tasks, audits, one-offs</td>
-              <td>No</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="tier-block">
+          <div class="tier-block__header">
+            <div class="tier-block__num">2</div>
+            <div>
+              <div class="tier-block__title">Visual scripting (Dynamo)</div>
+              <div class="tier-block__subtitle">Parametric geometry and complex data flows</div>
+            </div>
+          </div>
+          <div class="tier-block__body">
+            <p>Dynamo is the right tool for parametric geometry, complex data pipelines, and workflows that need visual logic. For firms with someone who maintains it, it is powerful. For everyone else, the learning curve and graph maintenance overhead usually outweigh the benefit, which is why most BIM managers reach for pyRevit or MCP instead.</p>
+          </div>
+        </div>
 
-        <p>PyRevit is the right choice when the task is always identical: same inputs, same logic, same output. You build the button once (or I build it for you), and the team clicks it. Fast, reliable, no thinking required.</p>
-        <p>Dynamo is powerful for parametric geometry and complex data pipelines, but it has a real learning curve. Most non-technical users find it inaccessible, and graphs can break when the model changes in ways the graph did not anticipate.</p>
-        <p>MCP is the right choice when the task varies. Different parameters to check each project, different elements to target, conditions you want to describe rather than hardcode. You do not need to know the Revit API or build anything. You just describe what you want, and the AI figures out how to get it.</p>
-        <p>A lot of firms end up using all three in combination: pyRevit for the high-frequency, always-the-same tasks, Dynamo for complex geometry workflows, and MCP for investigative work, audits, and anything that does not fit neatly into a fixed script.</p>
+        <div class="tier-block">
+          <div class="tier-block__header">
+            <div class="tier-block__num">3</div>
+            <div>
+              <div class="tier-block__title">AI-driven natural language control (MCP)</div>
+              <div class="tier-block__subtitle">Variable tasks, audits, one-off work</div>
+            </div>
+          </div>
+          <div class="tier-block__body">
+            <p>MCP connects an AI assistant like Claude directly to your live Revit session. You describe what you want in plain English and the AI reads from and writes to your model in response.</p>
+            <p>MCP earns its place on tasks that vary. Different elements to target each project, conditions that require reasoning about the model, questions you need answered before deciding what to change. Some real examples:</p>
+            <ul>
+              <li>"Show me all walls where the structural usage is 'Shear' but no fire rating is assigned."</li>
+              <li>"Find every room with an area over 500 SF where the occupancy type is not set."</li>
+              <li>"Set the BIM Status to 'Coordinated' for all MEP elements on Level 3 in Phase New Construction."</li>
+              <li>"Export a list of all doors where the mark does not start with the floor number prefix."</li>
+              <li>"How many elements in this model are missing a discipline assignment?"</li>
+              <li>"Flag every structural column where the base level and the workset do not match."</li>
+            </ul>
+            <p>These are the tasks that would otherwise take 20 to 45 minutes each. With MCP, they happen in a conversation.</p>
+          </div>
+        </div>
 
-        <h2 id="what-revit-tasks">Which Revit tasks MCP handles well</h2>
-        <p>MCP is particularly strong in four areas:</p>
-        <p><strong>Parameter audits.</strong> Finding elements with missing, inconsistent, or conflicting parameter values across a large model. This is painful to do manually and time-consuming to build a schedule for every possible condition. With MCP, you just ask.</p>
-        <p><strong>Bulk updates.</strong> Changing parameter values across a set of elements defined by criteria you describe. Change 20 elements or 2,000, the workflow is the same conversation.</p>
-        <p><strong>Data export.</strong> Pulling element data into a structured format, typically CSV, for coordination, owner reporting, or handoff. No schedule required, no export configuration to set up.</p>
-        <p><strong>One-off investigations.</strong> "How many elements in this model have a conflicting fire rating?" is not worth building a schedule for if you only need the answer once. With MCP, you ask, you get the answer, and you move on.</p>
-
-        <h2 id="who-its-for">Who it is for</h2>
-        <p>MCP is built for BIM managers, project architects, and senior Revit users who spend real time on model data work: audits, parameter management, coordination reporting, data cleanup before milestones. If you are comfortable in Revit but do not want to write Python or learn Dynamo just to answer a data question, this is for you.</p>
-        <p>You do not need any programming background to use it. If you can describe what you want in plain English, you can use it. That is the whole point.</p>
-        <p>It earns its keep on any project where you have real data management work to do. The value is in the type of work, not the size of the model. A 30-unit residential project with inconsistent parameter data is just as good a use case as a 500,000 SF hospital.</p>
+        <h2 id="where-to-start">Where to start</h2>
+        <p>Most firms end up using pyRevit and MCP together rather than choosing between them. pyRevit handles the high-frequency, always-the-same tasks, including fixed-ruleset compliance checks that run the same way every submittal. MCP handles variable queries, one-offs, and anything where the conditions or targets change project to project. The combination covers the full range of model data work without requiring anyone to maintain a library of custom scripts.</p>
+        <p>If you have tasks you do every week that are always the same process, pyRevit buttons are the right first investment. Fast to set up for a defined workflow, and the payback is immediate.</p>
+        <p>If your pain is more on the audit and data management side, or if you need tools that work differently project to project, MCP is the right starting point. The learning curve is minimal because you are just describing what you want.</p>
+        <p>If you want both, BIM Automation Studio offers them together. The pyRevit + MCP bundle includes both and volume discounts for teams of 6+. <a href="pricing.html#get-in-touch">Get a custom quote</a> and I'll put together the right setup for your firm.</p>
 
         <div class="article-callout">
-          <div class="article-callout__label">See it in action</div>
-          <p>The fastest way to understand what MCP can do in Revit is to watch it on a real model. <a href="blog-revit-mcp-natural-language-control.html">Read the full walkthrough</a> or <a href="pricing.html#get-in-touch">request a pilot spot</a> to try it on your own project.</p>
+          <div class="article-callout__label">Founding pilot</div>
+          <p>The first firms to sign on get 30 days of full access at no cost. No subscription charge, no onboarding fee. The only ask is a 15-minute feedback call at the end of the trial. <a href="pricing.html#get-in-touch">Apply for a pilot spot.</a></p>
         </div>
 
         <div class="article-tags">
           <span class="article-tags__label">Filed under</span>
-          <span class="article-tag">Revit MCP</span>
-          <span class="article-tag">BIM automation</span>
-          <span class="article-tag">Claude AI</span>
+          <span class="article-tag">Revit automation</span>
           <span class="article-tag">pyRevit</span>
-          <span class="article-tag">Dynamo</span>
+          <span class="article-tag">Revit MCP</span>
+          <span class="article-tag">BIM workflow</span>
+          <span class="article-tag">AEC technology</span>
         </div>
       </article>
 
@@ -598,25 +609,23 @@ img { max-width: 100%; display: block; }
         <nav class="toc" aria-label="Table of contents">
           <div class="toc__label">On this page</div>
           <ol class="toc__list" id="toc-list">
-            <li><a href="#what-is-mcp">What MCP actually is</a></li>
-            <li><a href="#how-it-works">How it works in practice</a></li>
-            <li><a href="#vs-dynamo-pyrevit">MCP vs. Dynamo vs. pyRevit</a></li>
-            <li><a href="#what-revit-tasks">Which tasks it handles</a></li>
-            <li><a href="#who-its-for">Who it's for</a></li>
+            <li><a href="#whats-changed">What has changed</a></li>
+            <li><a href="#three-tiers">The three approaches</a></li>
+            <li><a href="#where-to-start">Where to start</a></li>
           </ol>
         </nav>
 
         <div class="cta-card">
-          <div class="cta-card__label">Next steps</div>
-          <h3>Want to see it on your model?</h3>
-          <p>Pilot spots are open. 30 days free, no onboarding fee, direct support from me throughout.</p>
+          <div class="cta-card__label">Get started</div>
+          <h3>See pricing for your team size</h3>
+          <p>pyRevit buttons, MCP AI tools, or both. Volume discounts for teams of 6 and up.</p>
           <div class="cta-card__actions">
-            <a href="blog-revit-mcp-natural-language-control.html" class="cta-card__action">
-              <span>Read the full walkthrough</span>
+            <a href="pyrevit-mcp.html" class="cta-card__action">
+              <span>See pyRevit + MCP</span>
               <svg class="ic"><use href="#i-arrow-right"/></svg>
             </a>
             <a href="pricing.html#get-in-touch" class="cta-card__action cta-card__action--primary">
-              <span>Apply for a pilot spot</span>
+              <span>Get a custom quote</span>
               <svg class="ic"><use href="#i-arrow-right"/></svg>
             </a>
           </div>
@@ -643,29 +652,15 @@ img { max-width: 100%; display: block; }
           <div class="post-card__meta">
             <span class="post-card__youre-here">You&rsquo;re reading</span>
             <span class="post-card__meta-dot"></span>
-            <span>May 18, 2026</span>
-          </div>
-          <h3 class="post-card__title">What Is MCP in Revit and BIM? A Plain-English Explanation</h3>
-          <p class="post-card__excerpt">MCP connects Claude directly to your live Revit session. Here is what it actually means, how it compares to Dynamo and pyRevit, and which tasks it handles best.</p>
-          <div class="post-card__foot">
-            <span class="post-card__readtime">6 min read</span>
-            <span class="post-card__tag" style="background:rgba(255,255,255,0.08);color:#fff">Explainer</span>
-          </div>
-        </article>
-
-        <a href="blog-revit-workflow-automation-guide.html" class="post-card">
-          <div class="post-card__meta">
-            <span class="post-card__tag">Guide</span>
-            <span class="post-card__meta-dot"></span>
             <span>Jun 7, 2026</span>
           </div>
           <h3 class="post-card__title">Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI</h3>
           <p class="post-card__excerpt">A breakdown of the three approaches to Revit automation, where pyRevit, Dynamo, and MCP each fit, and how firms are using all three together.</p>
           <div class="post-card__foot">
             <span class="post-card__readtime">4 min read</span>
-            <span class="post-card__cta">Read <svg class="ic" style="width:13px;height:13px"><use href="#i-arrow-right"/></svg></span>
+            <span class="post-card__tag" style="background:rgba(255,255,255,0.08);color:#fff">Guide</span>
           </div>
-        </a>
+        </article>
 
         <a href="blog-can-mcp-control-revit-parameters.html" class="post-card">
           <div class="post-card__meta">
@@ -677,6 +672,20 @@ img { max-width: 100%; display: block; }
           <p class="post-card__excerpt">A deep dive into Revit MCP's parameter control: reads, bulk writes, conditional logic, batch type creation, view filters, and what Autodesk's version can't do.</p>
           <div class="post-card__foot">
             <span class="post-card__readtime">10 min read</span>
+            <span class="post-card__cta">Read <svg class="ic" style="width:13px;height:13px"><use href="#i-arrow-right"/></svg></span>
+          </div>
+        </a>
+
+        <a href="blog-what-is-mcp-in-revit-bim.html" class="post-card">
+          <div class="post-card__meta">
+            <span class="post-card__tag">Explainer</span>
+            <span class="post-card__meta-dot"></span>
+            <span>May 18, 2026</span>
+          </div>
+          <h3 class="post-card__title">What Is MCP in Revit and BIM? A Plain-English Explanation</h3>
+          <p class="post-card__excerpt">MCP connects Claude directly to your live Revit session. Here is what it actually means, how it compares to Dynamo and pyRevit, and which tasks it handles best.</p>
+          <div class="post-card__foot">
+            <span class="post-card__readtime">6 min read</span>
             <span class="post-card__cta">Read <svg class="ic" style="width:13px;height:13px"><use href="#i-arrow-right"/></svg></span>
           </div>
         </a>
@@ -708,13 +717,13 @@ img { max-width: 100%; display: block; }
   <div class="container final-cta__inner">
     <div class="eyebrow" style="justify-content:center;display:inline-flex;color:var(--bas-teal)"><span>Ready when you are</span></div>
     <h2>Ready to cut the manual work?</h2>
-    <p>Tell me what you are working with and I will put together a custom quote. Takes about 2 minutes. No sales call, no pressure. Direct response from me within 48 hours.</p>
+    <p>Tell me what you're working with and I'll put together a custom quote. Takes about 2 minutes. No sales call, no pressure. Direct response from me within 48 hours.</p>
     <div class="final-cta__buttons">
       <a href="pricing.html#get-in-touch" class="btn btn--teal">Get a Custom Quote <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow-right"/></svg></a>
       <a href="mailto:bimautomationstudio@gmail.com" class="btn btn--ghost"><svg class="ic" style="width:14px;height:14px"><use href="#i-mail"/></svg> Email Eric directly</a>
     </div>
     <div class="final-cta__bio">
-      <p style="margin:0"><strong>About me.</strong> I am a BIM specialist with 15 years doing production shop drawings and structural coordination, where a wrong parameter costs real money. I built these tools for myself because I was spending hours on tasks that should take minutes, and I was tired of it. I am still doing this work every day, which means every automation I build comes from a real frustration on a real project, not a whiteboard.</p>
+      <p style="margin:0"><strong>About me.</strong> I'm a BIM specialist with 15 years doing production shop drawings and structural coordination, where a wrong parameter costs real money. I built these tools for myself because I was spending hours on tasks that should take minutes, and I was tired of it. I'm still doing this work every day, which means every automation I build comes from a real frustration on a real project, not a whiteboard.</p>
       <p class="final-cta__sig">Eric U.</p>
     </div>
   </div>
@@ -805,7 +814,7 @@ img { max-width: 100%; display: block; }
   })();
 </script>
 
-<a href="pricing.html#get-in-touch" class="floating-cta" onclick="gtag('event','cta_click',{event_category:'floating',event_label:'blog_what_is_mcp_floating'})">Apply for Pilot Access</a>
+<a href="pricing.html#get-in-touch" class="floating-cta" onclick="gtag('event','cta_click',{event_category:'floating',event_label:'blog_floating'})">Apply for Pilot Access</a>
 
 <script>
 (function() {
