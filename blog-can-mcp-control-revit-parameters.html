@@ -580,9 +580,8 @@ img { max-width: 100%; display: block; }
 
       <article class="article">
 
-        <h2 id="short-answer">The short answer</h2>
-        <p>Yes, Revit MCP can control Revit parameters. It reads, filters, and writes values back to the model, one element or hundreds at once, all in plain English with no scripting. Autodesk shipped their own Revit MCP as a read-only 2027 Tech Preview. Mine writes.</p>
-        <p>The longer answer is that how well it works depends on what you are trying to do. Simple reads and bulk writes are fast and reliable. Complex conditional logic across hundreds of elements is where it gets more interesting. This post covers all of it.</p>
+        <p>Autodesk's Revit MCP shipped with Revit 2027 as a read-only Tech Preview. It can query your model. It cannot write to it.</p>
+        <p>A write-capable version changes what is possible: reading parameter values across a live model, running bulk updates on hundreds of elements at once, applying conditional logic without writing a single line of script. How well each of those works depends on what you are trying to do. This post covers all of it, including where the limits are.</p>
 
         <h2 id="reading-parameters">Reading parameter values across your model</h2>
         <p>Reading is where most sessions start. You can ask MCP things like:</p>
@@ -665,7 +664,6 @@ img { max-width: 100%; display: block; }
         <nav class="toc" aria-label="Table of contents">
           <div class="toc__label">On this page</div>
           <ol class="toc__list" id="toc-list">
-            <li><a href="#short-answer">The short answer</a></li>
             <li><a href="#reading-parameters">Reading parameters</a></li>
             <li><a href="#bulk-writes">Bulk writes</a></li>
             <li><a href="#conditional-logic">Conditional logic</a></li>
