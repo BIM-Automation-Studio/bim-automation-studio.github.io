@@ -19,6 +19,15 @@
 }
 </script>
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WV3SV10YQT');
+</script>
+
 <link rel="stylesheet" href="colors_and_type.css">
 <style>
 * { box-sizing: border-box; }
@@ -812,17 +821,4 @@ img { max-width: 100%; display: block; }
   document.querySelectorAll('.blog-feed__scroll-wrapper').forEach(function(wrapper) {
     var grid = wrapper.querySelector('.blog-feed__grid');
     var leftBtn = wrapper.querySelector('.blog-feed__arrow--left');
-    var rightBtn = wrapper.querySelector('.blog-feed__arrow--right');
-    var interval;
-    function startScroll(dir) { interval = setInterval(function() { grid.scrollLeft += dir * 6; }, 16); }
-    function stopScroll() { clearInterval(interval); }
-    leftBtn.addEventListener('mouseenter', function() { startScroll(-1); });
-    leftBtn.addEventListener('mouseleave', stopScroll);
-    rightBtn.addEventListener('mouseenter', function() { startScroll(1); });
-    rightBtn.addEventListener('mouseleave', stopScroll);
-  });
-})();
-</script>
-
-</body>
-</html>
+    var rightBtn = wrappe
