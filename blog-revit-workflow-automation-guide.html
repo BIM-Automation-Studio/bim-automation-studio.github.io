@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI · BIM Automation Studio</title>
+<title>Revit Automation in 2026: What pyRevit, Dynamo, and MCP Actually Do · BIM Automation Studio</title>
 <meta name="description" content="A clear breakdown of Revit automation in 2026: what pyRevit handles, what MCP and AI unlock, and how AEC firms are combining them to cut hours of manual model work every week.">
 <link rel="icon" href="favicon.png">
 <link rel="canonical" href="https://bim-automation-studio.github.io/blog-revit-workflow-automation-guide.html">
@@ -12,7 +12,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI",
+  "headline": "Revit Automation in 2026: What pyRevit, Dynamo, and MCP Actually Do",
   "author": { "@type": "Person", "name": "Eric Upshur" },
   "publisher": { "@type": "Organization", "name": "BIM Automation Studio" },
   "datePublished": "2026-06-07"
@@ -499,7 +499,7 @@ img { max-width: 100%; display: block; }
         <span style="color:#fff">Workflow automation guide</span>
       </div>
       <span class="article-hero__tag"><svg class="ic" style="width:11px;height:11px"><use href="#i-sparkles"/></svg> Guide</span>
-      <h1>Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI</h1>
+      <h1>Revit Automation in 2026: What pyRevit, Dynamo, and MCP Actually Do</h1>
       <p class="article-hero__deck">A clear breakdown of what Revit automation looks like today, from one-click pyRevit buttons to AI-driven natural language control, and how firms are combining both to eliminate hours of manual model work every week.</p>
       <div class="article-hero__byline">
         <div class="byline__avatar">EU</div>
@@ -525,14 +525,9 @@ img { max-width: 100%; display: block; }
 
       <article class="article">
 
-        <h2 id="whats-changed">What has changed in Revit automation</h2>
-        <p>Revit automation has been possible for years. Dynamo, the Revit API, and pyRevit have given BIM teams real tools to cut repetitive work. Over the past year, however, a new layer has entered the picture. AI models can now connect directly to a live Revit session and respond to plain-English instructions.</p>
-        <p>That changes what is accessible to non-developers. Before, meaningful automation usually required someone who could write Python or build Dynamo graphs. Now, a senior Revit user who has never written a line of code can query a 10,000-element model, run a conditional parameter audit, and export the results to CSV, all by describing what they want in a conversation.</p>
-        <p>Autodesk shipped their own MCP implementation in Revit 2027 as a read-only Tech Preview. The Revit MCP I've been running in production reads and writes: parameter updates, type assignments, view filters, selection sets, schedules, CSV exports, all through the same conversational interface against your live model.</p>
-        <p>This post breaks down what the automation landscape looks like today, where each tool fits, and how firms are putting both to work.</p>
+        <p>Revit automation in 2026 breaks into three tiers. Each handles different work, requires different skill to maintain, and fits different parts of a firm's workflow. Here is what each one does and where it fits.</p>
 
         <h2 id="three-tiers">The three approaches to Revit automation</h2>
-        <p>It helps to think about Revit automation in three tiers, based on how the user interacts with the tool and what kind of task it handles best.</p>
 
         <div class="tier-block">
           <div class="tier-block__header">
@@ -579,6 +574,7 @@ img { max-width: 100%; display: block; }
           </div>
           <div class="tier-block__body">
             <p>MCP connects an AI assistant like Claude directly to your live Revit session. You describe what you want in plain English and the AI reads from and writes to your model in response.</p>
+            <p>Autodesk shipped their own MCP in Revit 2027, but it is read-only. The version I run in production reads and writes. Some of the current tools cover parameter updates, view filters, schedules, and CSV exports. The set gets built out based on what each firm actually needs.</p>
             <p>MCP earns its place on tasks that vary. Different elements to target each project, conditions that require reasoning about the model, questions you need answered before deciding what to change. Some real examples:</p>
             <ul>
               <li>"Show me all walls where the structural usage is 'Shear' but no fire rating is assigned."</li>
@@ -618,7 +614,6 @@ img { max-width: 100%; display: block; }
         <nav class="toc" aria-label="Table of contents">
           <div class="toc__label">On this page</div>
           <ol class="toc__list" id="toc-list">
-            <li><a href="#whats-changed">What has changed</a></li>
             <li><a href="#three-tiers">The three approaches</a></li>
             <li><a href="#where-to-start">Where to start</a></li>
           </ol>
@@ -663,7 +658,7 @@ img { max-width: 100%; display: block; }
             <span class="post-card__meta-dot"></span>
             <span>Jun 7, 2026</span>
           </div>
-          <h3 class="post-card__title">Revit Workflow Automation: What's Actually Possible in 2026 with MCP and AI</h3>
+          <h3 class="post-card__title">Revit Automation in 2026: What pyRevit, Dynamo, and MCP Actually Do</h3>
           <p class="post-card__excerpt">A breakdown of the three approaches to Revit automation, where pyRevit, Dynamo, and MCP each fit, and how firms are using all three together.</p>
           <div class="post-card__foot">
             <span class="post-card__readtime">4 min read</span>
