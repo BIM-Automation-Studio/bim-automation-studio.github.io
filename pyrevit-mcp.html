@@ -55,6 +55,14 @@
         "@type": "Answer",
         "text": "BIM Automation Studio's Revit MCP is read-write — it can query elements, bulk-update parameters, and apply conditional logic directly in a live Revit model. Autodesk's Revit MCP (released in Revit 2027) is read-only and currently a Tech Preview. BAS's version is production-ready and works on older Revit versions."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Does pyRevit work with Revit 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The custom pyRevit buttons BIM Automation Studio builds are compatible with Revit 2026, Revit 2025, and earlier versions. Revit MCP also runs on Revit 2026 in production. Autodesk's own MCP server is read-only and available only in Revit 2027. BAS's read-write MCP works on older versions."
+      }
     }
   ]
 }
@@ -471,6 +479,10 @@ img { max-width: 100%; display: block; }
         </ul>
         <p>The key characteristic of a good pyRevit button: the task is always the same. Same logic, same output, every time.</p>
 
+        <h2 id="revit-2026">pyRevit and Revit 2026</h2>
+        <p>The custom pyRevit buttons we build are compatible with Revit 2026, Revit 2025, and earlier versions. pyRevit itself is version-agnostic. The scripts run on whatever version your firm is on, and we test against your specific environment before deployment.</p>
+        <p>The same is true for Revit MCP. Our read-write MCP server runs on Revit 2026 in production. That matters because Autodesk's MCP server, released as a Tech Preview in Revit 2027, is read-only and only available in the newest version. If your firm is on Revit 2026 or earlier, Autodesk's version is not an option. Ours is, and it does more.</p>
+
         <h2 id="mcp">Revit MCP: Natural Language Control with Claude AI</h2>
         <p>Revit MCP is a bridge between Claude Desktop and your live Revit model. You give instructions in plain English, like "find all rooms missing a department parameter" or "set the fire rating to 90 minutes on every door in Phase 2", and the AI executes them directly inside Revit in real time.</p>
         <p>This is where MCP earns its place: tasks that vary, require conditional logic, or need you to investigate the model before you know what to change. You do not need a script for every situation. You describe what you want, and it happens.</p>
@@ -602,6 +614,7 @@ img { max-width: 100%; display: block; }
           <ol class="toc__list" id="toc-list">
             <li><a href="#what-is-pyrevit-mcp">Overview</a></li>
             <li><a href="#pyrevit">pyRevit buttons</a></li>
+            <li><a href="#revit-2026">Revit 2026</a></li>
             <li><a href="#mcp">Revit MCP</a></li>
             <li><a href="#how-they-work-together">How they work together</a></li>
             <li><a href="#who-benefits">Who benefits most</a></li>

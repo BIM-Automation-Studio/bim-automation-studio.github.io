@@ -573,7 +573,7 @@ img { max-width: 100%; display: block; }
         <p>PyRevit is the right choice when the task is always identical: same inputs, same logic, same output. You build the button once (or I build it for you), and the team clicks it. Fast, reliable, no thinking required.</p>
         <p>Dynamo is powerful for parametric geometry and complex data pipelines, but it has a real learning curve. Most non-technical users find it inaccessible, and graphs can break when the model changes in ways the graph did not anticipate.</p>
         <p>MCP is the right choice when the task varies. Different parameters to check each project, different elements to target, conditions you want to describe rather than hardcode. You do not need to know the Revit API or build anything. You just describe what you want, and the AI figures out how to get it.</p>
-        <p>A lot of firms end up using all three in combination: pyRevit for the high-frequency, always-the-same tasks, Dynamo for complex geometry workflows, and MCP for investigative work, audits, and anything that does not fit neatly into a fixed script.</p>
+        <p>A lot of firms end up using all three in combination: <a href="pyrevit-mcp.html">pyRevit for the high-frequency, always-the-same tasks</a>, Dynamo for complex geometry workflows, and MCP for investigative work, audits, and anything that does not fit neatly into a fixed script.</p>
 
         <h2 id="what-revit-tasks">Which Revit tasks MCP handles well</h2>
         <p>MCP is particularly strong in four areas:</p>
@@ -822,4 +822,17 @@ img { max-width: 100%; display: block; }
   document.querySelectorAll('.blog-feed__scroll-wrapper').forEach(function(wrapper) {
     var grid = wrapper.querySelector('.blog-feed__grid');
     var leftBtn = wrapper.querySelector('.blog-feed__arrow--left');
-    var rightBtn = wrappe
+    var rightBtn = wrapper.querySelector('.blog-feed__arrow--right');
+    var interval;
+    function startScroll(dir) { interval = setInterval(function() { grid.scrollLeft += dir * 6; }, 16); }
+    function stopScroll() { clearInterval(interval); }
+    leftBtn.addEventListener('mouseenter', function() { startScroll(-1); });
+    leftBtn.addEventListener('mouseleave', stopScroll);
+    rightBtn.addEventListener('mouseenter', function() { startScroll(1); });
+    rightBtn.addEventListener('mouseleave', stopScroll);
+  });
+})();
+</script>
+
+</body>
+</html>

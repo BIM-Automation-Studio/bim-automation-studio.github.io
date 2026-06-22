@@ -826,4 +826,17 @@ img { max-width: 100%; display: block; }
   document.querySelectorAll('.blog-feed__scroll-wrapper').forEach(function(wrapper) {
     var grid = wrapper.querySelector('.blog-feed__grid');
     var leftBtn = wrapper.querySelector('.blog-feed__arrow--left');
-    var rightBtn
+    var rightBtn = wrapper.querySelector('.blog-feed__arrow--right');
+    var interval;
+    function startScroll(dir) { interval = setInterval(function() { grid.scrollLeft += dir * 6; }, 16); }
+    function stopScroll() { clearInterval(interval); }
+    leftBtn.addEventListener('mouseenter', function() { startScroll(-1); });
+    leftBtn.addEventListener('mouseleave', stopScroll);
+    rightBtn.addEventListener('mouseenter', function() { startScroll(1); });
+    rightBtn.addEventListener('mouseleave', stopScroll);
+  });
+})();
+</script>
+
+</body>
+</html>
