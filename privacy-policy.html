@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | BIM Automation Studio</title>
+<meta name="description" content="Privacy policy for BIM Automation Studio: what data I collect from website visitors and clients, how I use it, and your rights.">
+<link rel="icon" href="favicon.png">
+<link rel="canonical" href="https://bim-automation-studio.github.io/privacy-policy.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bim-automation-studio.github.io/privacy-policy.html">
+<meta property="og:title" content="Privacy Policy | BIM Automation Studio">
+<meta property="og:description" content="What data BIM Automation Studio collects, how it's used, and your privacy rights.">
+<meta property="og:image" content="https://bim-automation-studio.github.io/assets/logo.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy | BIM Automation Studio">
+<meta name="twitter:description" content="What data BIM Automation Studio collects, how it's used, and your privacy rights.">
+<meta name="twitter:image" content="https://bim-automation-studio.github.io/assets/logo.png">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WV3SV10YQT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WV3SV10YQT');
+</script>
+
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 var(--container-pad); }
+.section { padding: var(--section-pad-y) 0; }
+.section--soft { background: var(--bas-paper); }
+.section--dark { background: var(--bas-navy); color: var(--bas-on-navy); position: relative; overflow: hidden; }
+.section--dark::before { content:""; position:absolute; inset:0; background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); pointer-events: none; opacity: 0.6; }
+.section > .container { position: relative; z-index: 1; }
+
+.eyebrow {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bas-teal); font-weight: 500; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.eyebrow::before { content:""; width:24px; height:1px; background: var(--bas-teal); display: inline-block; }
+
+.ic { width: 1em; height: 1em; flex-shrink: 0; display: inline-block; vertical-align: middle; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(26,26,46,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav__inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.nav__brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav__brand img { height: 38px; width: auto; }
+.nav__brand-text { display: flex; flex-direction: column; line-height: 1; font-family: var(--font-display); }
+.nav__brand-text strong { color: #fff; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em; }
+.nav__brand-text span { color: rgba(255,255,255,0.55); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 5px; font-family: var(--font-mono); }
+.nav__links { display: flex; align-items: center; gap: 32px; }
+.nav__link { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+.nav__link:hover { color: var(--bas-teal); }
+.nav__cta { background: var(--bas-coral); color: #fff; padding: 10px 20px; border-radius: var(--radius-sm); font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: background 0.2s; }
+.nav__cta:hover { background: #d63d56; color: #fff; }
+.nav__burger { display: none; background: transparent; border: 0; color: #fff; cursor: pointer; padding: 8px; line-height: 0; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  padding: 64px 0 72px;
+  background: var(--bas-navy);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before { content:""; position:absolute; inset:0; background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); opacity: 0.7; pointer-events: none; }
+.page-hero__inner { position: relative; z-index: 1; max-width: 760px; }
+.page-hero h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+.page-hero__sub { font-size: 1.1rem; line-height: 1.6; color: rgba(255,255,255,0.78); margin: 0; font-size: 1.05rem; }
+.page-hero__meta { margin-top: 20px; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.45); }
+
+/* ── PRIVACY CONTENT ── */
+.privacy-wrap { max-width: 800px; }
+
+.privacy-section { margin-bottom: 56px; }
+.privacy-section:last-child { margin-bottom: 0; }
+
+.privacy-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--bas-navy);
+  font-weight: 700;
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--bas-teal);
+  letter-spacing: -0.01em;
+}
+.privacy-section h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--bas-navy);
+  font-weight: 600;
+  margin: 28px 0 10px;
+}
+.privacy-section p {
+  color: var(--fg-2);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+.privacy-section p:last-child { margin-bottom: 0; }
+.privacy-section ul {
+  margin: 0 0 14px 0;
+  padding-left: 20px;
+}
+.privacy-section li {
+  color: var(--fg-2);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.privacy-section li strong { color: var(--bas-navy); font-weight: 600; }
+.privacy-section a { color: var(--bas-blue); text-decoration: none; }
+.privacy-section a:hover { color: var(--bas-teal); }
+
+/* Info callout */
+.info-box {
+  background: var(--bas-info-bg);
+  border-left: 4px solid var(--bas-blue);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 0.96rem;
+  color: var(--bas-ink);
+  line-height: 1.65;
+}
+.info-box strong { color: var(--bas-navy); }
+
+/* Data table */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.91rem;
+  margin: 20px 0;
+}
+.data-table th {
+  background: var(--bas-paper);
+  color: var(--bas-navy);
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  border: 1px solid var(--bas-line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.data-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--bas-line);
+  color: var(--fg-2);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.data-table tr:nth-child(even) td { background: var(--bas-paper); }
+.data-table td strong { color: var(--bas-navy); font-weight: 600; }
+
+/* ── FOOTER ── */
+.footer { background: #0c0c1a; color: rgba(255,255,255,0.55); padding: 56px 0 28px; }
+.footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.footer__brand img { height: 36px; }
+.footer__brand strong { color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.footer__tag { font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.45); margin: 0 0 18px; max-width: 280px; }
+.footer__col h4 { color: #fff; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; margin: 0 0 14px; font-weight: 600; }
+.footer__col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.footer__col a { color: rgba(255,255,255,0.55); font-size: 0.92rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.footer__col a:hover { color: var(--bas-teal); }
+.footer__col a .ic { width: 14px; height: 14px; }
+.footer__bottom { padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: rgba(255,255,255,0.45); flex-wrap: wrap; gap: 12px; }
+.footer__bottom a { color: rgba(255,255,255,0.45); text-decoration: none; }
+.footer__bottom a:hover { color: var(--bas-teal); }
+.footer__bottom .contact { font-family: var(--font-mono); letter-spacing: 0.04em; }
+.footer__bottom .contact a { color: var(--bas-teal); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1000px) {
+  .footer__top { grid-template-columns: 1fr; }
+  .nav__links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--bas-navy); flex-direction: column; align-items: stretch; padding: 16px 20px 24px; gap: 4px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .nav__links.open { display: flex; }
+  .nav__links .nav__link { padding: 12px 0; font-size: 1rem; }
+  .nav__cta { width: 100%; text-align: center; margin-top: 8px; }
+  .nav__burger { display: inline-block; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 680px) {
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── ICON SPRITE ── -->
+<svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+  </defs>
+</svg>
+
+
+<!-- ── NAV ── -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="nav__brand" aria-label="BIM Automation Studio">
+      <img src="assets/logo-transparent.png" alt="">
+      <span class="nav__brand-text"><strong>BIM Automation Studio</strong><span>Revit · pyRevit · MCP</span></span>
+    </a>
+    <button class="nav__burger" aria-label="Menu" id="burger"><svg class="ic" style="width:24px;height:24px"><use href="#i-menu"/></svg></button>
+    <nav class="nav__links" id="nav-links">
+      <a href="blog.html" class="nav__link">Blog</a>
+      <a href="pyrevit-mcp.html" class="nav__link">pyRevit + MCP</a>
+      <a href="pricing.html" class="nav__link">Pricing</a>
+      <a href="pricing.html#get-in-touch" class="nav__cta">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div class="eyebrow"><span>Legal</span></div>
+    <h1>Privacy Policy</h1>
+    <p class="page-hero__sub">What data BIM Automation Studio collects, how it's used, and your rights as a visitor or client.</p>
+    <p class="page-hero__meta">Last updated: June 30, 2026 &nbsp;·&nbsp; Applies to bim-automation-studio.github.io and all BIM Automation Studio software products</p>
+  </div>
+</section>
+
+
+<!-- ── CONTENT ── -->
+<section class="section">
+  <div class="container">
+    <div class="privacy-wrap">
+
+
+      <!-- 1. Who We Are -->
+      <div class="privacy-section">
+        <h2>1. Who We Are</h2>
+        <p>BIM Automation Studio is a one-person software business operated by Eric Upshur. I build custom Revit automation tools for architecture, MEP, and engineering firms.</p>
+        <p>Questions? Email <a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a>.</p>
+      </div>
+
+
+      <!-- 2. Website Visitors -->
+      <div class="privacy-section">
+        <h2>2. Data Collected From Website Visitors</h2>
+
+        <h3>Google Analytics</h3>
+        <p>This site uses Google Analytics 4. It collects pages viewed, time on site, general location (country/city), device type, browser, and traffic source. Google anonymizes IP addresses by default. I use this to understand which content is useful. I don't identify individual visitors. You can opt out with the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noreferrer">Google Analytics Opt-out Browser Add-on</a>. Google's full privacy policy is at <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">policies.google.com/privacy</a>.</p>
+
+        <h3>Contact Form</h3>
+        <p>When you submit the contact or inquiry form on this site, I collect your name, work email address, company name, and message. This is used solely to respond to your inquiry. I don't add you to any mailing list or share your information with third parties. Inquiry data is retained as long as needed for follow-up and deleted upon request.</p>
+
+        <h3>Cookies</h3>
+        <p>I don't set any first-party cookies. Google Analytics sets its own cookies to track sessions and page views. See <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noreferrer">Google's Cookie Policy</a> for details. No other tracking cookies are used on this site.</p>
+      </div>
+
+
+      <!-- 3. Software Clients -->
+      <div class="privacy-section">
+        <h2>3. Data Collected From Software Clients</h2>
+        <p>If you're a paying client using my pyRevit buttons or MCP tools, my license management system collects operational data from your workstations. This collection is required for license enforcement, seat management, and usage analytics. Full technical details are available upon request.</p>
+
+        <div class="info-box">
+          <strong>What I never collect:</strong> File names, file paths, project names, model content or geometry, passwords, clipboard data, screen captures, or web browsing activity. My tools run within your Revit environment and do not access or transmit any project data.
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Data Type</th>
+              <th>What Is Collected</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Identity</strong></td>
+              <td>Windows username, computer hostname, client ID</td>
+              <td>License seat enforcement; prevent duplicate seat claims</td>
+            </tr>
+            <tr>
+              <td><strong>Application</strong></td>
+              <td>Revit version number, process IDs</td>
+              <td>Multi-instance support; compatibility tracking</td>
+            </tr>
+            <tr>
+              <td><strong>Session</strong></td>
+              <td>Session start/end timestamps, heartbeat signal (every 10 min), session status</td>
+              <td>Automatic seat release after inactivity; seat availability</td>
+            </tr>
+            <tr>
+              <td><strong>Usage</strong></td>
+              <td>Names of tools/scripts executed</td>
+              <td>Usage analytics; product improvement; client ROI reporting</td>
+            </tr>
+            <tr>
+              <td><strong>License</strong></td>
+              <td>Seat limit, seats in use, seat claim/release events</td>
+              <td>Enforce license agreement; real-time seat availability</td>
+            </tr>
+            <tr>
+              <td><strong>Extension</strong></td>
+              <td>BIM Automation Studio version number</td>
+              <td>Support, troubleshooting, update notifications</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Where This Data Is Stored</h3>
+        <p>License and session data is stored in Google Sheets, Google Forms, and Google Apps Script (all US-based Google infrastructure). All data is transmitted over HTTPS (TLS 1.2+).</p>
+        <p>Temporary session state files are also created in your local Windows temp folder (<code>%USERPROFILE%\AppData\Local\Temp\</code>) and deleted automatically when Revit closes.</p>
+
+        <h3>Data Retention</h3>
+        <p>Active session records are deleted when the session ends. Event logs (tool usage, errors) are retained for analytics and compliance. Upon subscription cancellation, account and configuration data is deleted within 60 days. You may request immediate deletion at any time by emailing <a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a>.</p>
+      </div>
+
+
+      <!-- 4. AI / MCP -->
+      <div class="privacy-section">
+        <h2>4. AI Processing: MCP Tools and Claude</h2>
+        <p>My MCP system connects your Revit model to Claude, Anthropic's AI assistant. When you type a command in Claude Desktop, your prompt goes to Anthropic's servers. The MCP server runs locally on your machine, reads only what you asked for from Revit, and passes that back to Claude. Your files, geometry, and project data never leave your machine.</p>
+        <p>How Anthropic handles your prompts and conversation data depends on which Claude plan you're using:</p>
+        <ul>
+          <li><strong>Claude Free / Pro (Consumer Terms):</strong> Anthropic may use conversation data to train their models unless you opt out. See Anthropic's <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer">Privacy Policy</a> and their <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noreferrer">data training FAQ</a> for opt-out instructions.</li>
+          <li><strong>Claude Team / Enterprise (Commercial Terms):</strong> Includes a Data Processing Addendum (DPA), no training on your data, and Standard Contractual Clauses (SCCs) for EU transfers. See <a href="https://privacy.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa" target="_blank" rel="noreferrer">Anthropic's DPA page</a>.</li>
+        </ul>
+        <p>I don't control how Anthropic processes your data. If your firm needs a DPA or has GDPR requirements, Claude Team or Enterprise is the right fit. <a href="mailto:bimautomationstudio@gmail.com">Email me</a> if you want to talk through which plan works for your setup.</p>
+      </div>
+
+
+      <!-- 5. Third Parties -->
+      <div class="privacy-section">
+        <h2>5. Third-Party Services</h2>
+        <ul>
+          <li><strong>Google Analytics (Google LLC, US):</strong> Website traffic analytics. <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a></li>
+          <li><strong>Google Sheets / Forms / Apps Script (Google LLC, US):</strong> License management and event logging for software clients. <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a></li>
+          <li><strong>Stripe (Stripe, Inc., US):</strong> Payment processing. PCI-DSS compliant. I never see or store your full card details. <a href="https://stripe.com/privacy" target="_blank" rel="noreferrer">Privacy Policy</a></li>
+          <li><strong>Anthropic (Anthropic, PBC, US):</strong> AI processing for MCP tool users. Data handling depends on your Claude plan; see Section 4. <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noreferrer">Privacy Policy</a></li>
+        </ul>
+        <p>I don't sell your data or use it for advertising.</p>
+      </div>
+
+
+      <!-- 6. Your Rights -->
+      <div class="privacy-section">
+        <h2>6. Your Rights</h2>
+        <p>Depending on where you're located, you may have the following rights:</p>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of the data I hold about you.</li>
+          <li><strong>Correction:</strong> Request correction of inaccurate data.</li>
+          <li><strong>Deletion:</strong> Request deletion of your data, subject to any legal retention requirements.</li>
+          <li><strong>Portability:</strong> Request your data in a machine-readable format.</li>
+          <li><strong>Objection:</strong> Object to processing based on legitimate interests.</li>
+          <li><strong>Withdrawal of consent:</strong> Where processing is based on consent, withdraw it at any time.</li>
+        </ul>
+        <p>To exercise any of these rights, email <a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a>.</p>
+
+        <h3>EU / GDPR</h3>
+        <p>If you're in the EEA, GDPR rights apply. I process client data on the basis of legitimate interest in operating a licensed software product. EU clients can request a Data Processing Agreement (DPA); I handle those on a per-client basis.</p>
+
+        <h3>California / CCPA</h3>
+        <p>California residents have the right to know what I collect, request deletion, and opt out of the sale of personal information. I don't sell personal information.</p>
+      </div>
+
+
+      <!-- 7. Security -->
+      <div class="privacy-section">
+        <h2>7. Security</h2>
+        <p>All data transmitted between my software and Google's servers is encrypted in transit (HTTPS / TLS 1.2+). Payments go through Stripe, which is PCI-DSS compliant. I never see or store your full card details.</p>
+        <p>No system is perfectly secure. If you have a specific security concern, email <a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a>.</p>
+      </div>
+
+
+      <!-- 8. Changes -->
+      <div class="privacy-section">
+        <h2>8. Changes to This Policy</h2>
+        <p>I may update this policy as my practices change. The "Last updated" date at the top of this page reflects the most recent revision. Active clients will be notified by email before any material changes take effect.</p>
+      </div>
+
+
+      <!-- 9. Contact -->
+      <div class="privacy-section">
+        <h2>9. Contact</h2>
+        <p>For any privacy questions or requests, email <a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a>. I respond within 30 days.</p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">
+          <img src="assets/logo-transparent.png" alt="">
+          <strong>BIM Automation Studio</strong>
+        </div>
+        <p class="footer__tag">Custom Revit automation for architecture, MEP &amp; engineering firms. Built by a 15-year AEC production specialist.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#services">pyRevit Buttons</a></li>
+          <li><a href="index.html#services">MCP AI Tools</a></li>
+          <li><a href="pyrevit-mcp.html">pyRevit + MCP</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4><a href="blog.html" style="color:inherit;text-decoration:none;font-size:inherit;">Blog</a></h4>
+        <ul>
+          <li><a href="blog-revit-mcp-natural-language-control.html">MCP Walkthrough</a></li>
+          <li><a href="blog-what-is-mcp-in-revit-bim.html">What Is MCP in Revit?</a></li>
+          <li><a href="blog-can-mcp-control-revit-parameters.html">MCP Parameter Control</a></li>
+          <li><a href="blog-revit-workflow-automation-guide.html">Revit Automation Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/ericupshur" target="_blank" rel="noreferrer"><svg class="ic"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
+          <li><a href="https://www.youtube.com/@BIMAutomationStudio" target="_blank" rel="noreferrer"><svg class="ic"><use href="#i-youtube"/></svg> YouTube</a></li>
+          <li><a href="mailto:bimautomationstudio@gmail.com"><svg class="ic"><use href="#i-mail"/></svg> Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BIM Automation Studio. All rights reserved. &nbsp;·&nbsp; <a href="privacy-policy.html">Privacy Policy</a></span>
+      <span class="contact"><a href="mailto:bimautomationstudio@gmail.com">bimautomationstudio@gmail.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+  document.querySelectorAll('#nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ document.getElementById('nav-links').classList.remove('open'); });
+  });
+</script>
+
+</body>
+</html>
