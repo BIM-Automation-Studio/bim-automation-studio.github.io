@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What Is MCP in Revit and BIM? A Plain-English Explanation · BIM Automation Studio</title>
-<meta name="description" content="Autodesk's Revit MCP is read-only. See what a read-write version does differently, and which Revit tasks MCP handles better than Dynamo or pyRevit.">
+<meta name="description" content="Autodesk's Revit MCP is read-only. Watch the read-write version handle bulk parameter updates, schedules, and CSV exports, and see which tasks it handles better than Dynamo or pyRevit.">
 <link rel="icon" href="favicon.png">
 <link rel="canonical" href="https://bim-automation-studio.github.io/blog-what-is-mcp-in-revit-bim.html">
 
@@ -222,6 +222,13 @@ img { max-width: 100%; display: block; }
   color: var(--bas-teal); font-weight: 600; margin-bottom: 8px;
 }
 .article-callout p { margin: 0; font-size: 1rem; }
+
+.article-video {
+  position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+  border-radius: var(--radius-md); margin: 8px 0 40px; background: #000;
+  box-shadow: 0 20px 40px -16px rgba(26,26,46,0.25);
+}
+.article-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
 .article-tags {
   margin-top: 56px; padding-top: 28px;
@@ -518,6 +525,10 @@ img { max-width: 100%; display: block; }
     <div class="article-grid">
 
       <article class="article">
+
+        <div class="article-video" aria-label="MCP v2 demo video">
+          <iframe loading="lazy" src="https://www.youtube.com/embed/SU-SKONKJ4k" title="MCP v2.0 demo: Revit MCP running fully in the background" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
 
         <h2 id="what-is-mcp">What MCP actually is</h2>
         <p>MCP stands for Model Context Protocol. It is an open standard, developed by Anthropic, that lets an AI assistant connect directly to external tools and data sources. In the context of Revit, it means Claude (the AI) can talk to your live Revit session in real time: reading elements, querying parameters, and writing data back to the model.</p>
