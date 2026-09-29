@@ -53,7 +53,7 @@
       "name": "Does Revit MCP write to the model or just read it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BIM Automation Studio's Revit MCP is read-write. It can query elements, bulk-update parameters, and apply conditional logic directly in a live Revit model. Autodesk's Revit MCP, released in Revit 2027, is read-only and still a Tech Preview. BAS's version is production-ready, works on older Revit versions, and is built custom to fit your model and your parameters."
+        "text": "BIM Automation Studio's Revit MCP is read-write. It can query elements, bulk-update parameters, and apply conditional logic directly in a live Revit model. Autodesk's Revit MCP is a Tech Preview for Revit 2027 only. BAS's version has run in production for over a year, works on Revit 2024 and later, and is built custom to fit your model and your parameters."
       }
     },
     {
@@ -489,7 +489,7 @@ img { max-width: 100%; display: block; }
 
         <h2 id="revit-2026">pyRevit and Revit 2026</h2>
         <p>The custom pyRevit buttons we build are compatible with Revit 2026, Revit 2025, and earlier versions. pyRevit itself is version-agnostic. The scripts run on whatever version your firm is on, and we test against your specific environment before deployment.</p>
-        <p>The same is true for Revit MCP. Our read-write MCP server runs on Revit 2026 in production. That matters because Autodesk's MCP server, released as a Tech Preview in Revit 2027, is read-only and only available in the newest version. If your firm is on Revit 2026 or earlier, Autodesk's version is not an option. Ours is, and it does more. For a full breakdown of what pyRevit, Dynamo, and MCP each handle best in a real Revit environment, see our <a href="blog-revit-workflow-automation-guide.html">Revit Automation in 2026 guide</a>.</p>
+        <p>The same is true for Revit MCP. Our MCP server runs on Revit 2024 and later in production. That matters because Autodesk's MCP server is a Tech Preview for Revit 2027 only. If your firm is on Revit 2026 or earlier, Autodesk's version is not an option. Ours is. For a full breakdown of what pyRevit, Dynamo, and MCP each handle best in a real Revit environment, see our <a href="blog-revit-workflow-automation-guide.html">Revit Automation in 2026 guide</a>.</p>
 
         <h2 id="mcp">Revit MCP: Natural Language Control with Claude AI</h2>
         <p>Revit MCP is a bridge between Claude Desktop and your live Revit model. You give instructions in plain English, like "find all rooms missing a department parameter" or "set the fire rating to 90 minutes on every door in Phase 2", and the AI executes them directly inside Revit in real time.</p>
@@ -647,7 +647,7 @@ img { max-width: 100%; display: block; }
       <a href="mailto:bimautomationstudio@gmail.com" class="btn btn--ghost"><svg class="ic" style="width:14px;height:14px"><use href="#i-mail"/></svg> Email Eric directly</a>
     </div>
     <div class="final-cta__bio">
-      <p style="margin:0"><strong>About me.</strong> I've spent 15 years building production shop drawings. I know from experience how much time manual processes eat on a real project. I built these tools because I was spending hours on tasks that should take minutes, and I was tired of it. I'm still doing this work every day, which means every automation I build comes from a real frustration on a real project, not a whiteboard.</p>
+      <p style="margin:0"><strong>About me.</strong> I've spent 15 years building production shop drawings. I know from experience how much time manual processes eat on a real project. I built these tools because I was spending hours on tasks that should take minutes, and I was tired of it. I'm still doing this work every day, which means every automation I build comes from a real frustration on a real project.</p>
       <p class="final-cta__sig">Eric U.</p>
     </div>
   </div>
@@ -680,6 +680,7 @@ img { max-width: 100%; display: block; }
           <li><a href="blog-what-is-mcp-in-revit-bim.html">What Is MCP in Revit?</a></li>
           <li><a href="blog-can-mcp-control-revit-parameters.html">MCP Parameter Control</a></li>
           <li><a href="blog-revit-workflow-automation-guide.html">Revit Automation Guide</a></li>
+          <li><a href="blog-revit-mcp-not-working-claude.html">Revit MCP Not Working?</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -744,4 +745,3 @@ img { max-width: 100%; display: block; }
 
 </body>
 </html>
-                                                                                        
