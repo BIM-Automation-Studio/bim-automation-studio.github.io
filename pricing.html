@@ -904,7 +904,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
       <h2>Tell me what you're working with.</h2>
       <p>Fill out the form and I'll respond directly within 48 business hours.</p>
 
-      <form action="https://formspree.io/f/mgoldgad" method="POST">
+      <form action="https://formspree.io/f/mgoldgad" method="POST" onsubmit="gtag('event','form_submit',{event_category:'get_in_touch',event_label:'pricing_get_in_touch_form'})">
         <div class="form-grid">
           <div class="field">
             <label for="name">Name <span class="req">*</span></label>
