@@ -546,9 +546,9 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
 <section class="pilot">
   <div class="container pilot__inner">
     <div>
-      <div class="pilot__pill"><span class="dot"></span><span>1 spot remaining</span></div>
+      <div class="pilot__pill"><span class="dot"></span><span>No credit card needed</span></div>
       <h2>Founding-client pilot. 30 days of full access, free.</h2>
-      <p>The next firm gets 30-day full access at no cost. No subscription, no onboarding fee. Eric handles all setup. The only thing asked in return is a 15-minute feedback call at the end.</p>
+      <p>Your firm gets 30 days of full access at no cost. No subscription, no onboarding fee. Eric handles all setup. The only thing asked in return is a 15-minute feedback call at the end.</p>
       <div class="pilot__waiver"><svg class="ic" style="stroke:currentColor;fill:none;stroke-width:1.75"><use href="#i-shield-check"/></svg> MCP onboarding fee waived for pilot firms.</div>
     </div>
     <div class="pilot__cta">
@@ -689,7 +689,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
   <div class="mid-cta__inner">
     <div class="mid-cta__eyebrow">Founding pilot</div>
     <h2>Ready to see it in your workflow?</h2>
-    <p>The next firm gets 30 days of full access free. No subscription, no onboarding fee. Apply and I'll respond within 48 hours.</p>
+    <p>Your firm gets 30 days of full access free. No subscription, no onboarding fee. Apply and I'll respond within 48 hours.</p>
     <form class="quick-form" action="https://formspree.io/f/mgoldgad" method="POST" onsubmit="gtag('event','form_submit',{event_category:'mid_cta',event_label:'pricing_quick_form'})">
       <input type="hidden" name="source" value="quick-form">
       <div class="quick-form__row">
@@ -902,7 +902,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
     <div class="form-wrap">
       <div class="eyebrow"><span>06 / Get in touch</span></div>
       <h2>Tell me what you're working with.</h2>
-      <p>Fill out the form and I'll respond directly within 48 business hours.</p>
+      <p>Fill out the form and I'll respond directly within 48 business hours. Applying for the founding pilot? Check the box below. It's 30 days of full access free, with no subscription, no onboarding fee, and no credit card.</p>
 
       <form action="https://formspree.io/f/mgoldgad" method="POST" onsubmit="gtag('event','form_submit',{event_category:'get_in_touch',event_label:'pricing_get_in_touch_form'})">
         <div class="form-grid">
@@ -934,6 +934,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
           <div class="field field--checks">
             <label>I'm interested in (check all that apply)</label>
             <div class="checks">
+              <label class="check-pill"><input type="checkbox" name="interest" value="Founding Pilot"><span> Founding Pilot</span></label>
               <label class="check-pill"><input type="checkbox" name="interest" value="pyRevit Tools"><span> pyRevit Tools</span></label>
               <label class="check-pill"><input type="checkbox" name="interest" value="MCP AI Tools"><span> MCP AI Tools</span></label>
               <label class="check-pill"><input type="checkbox" name="interest" value="Bundle"><span> Bundle (both)</span></label>
@@ -941,6 +942,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
               <label class="check-pill"><input type="checkbox" name="interest" value="See a Demo First"><span> See a Demo First</span></label>
               <label class="check-pill"><input type="checkbox" name="interest" value="Just a Question"><span> Just a Question</span></label>
             </div>
+            <div class="form-submit__note" style="margin-top:10px"><b>MCP:</b> each user needs their own Claude account (billed by Anthropic).</div>
           </div>
 
           <div class="field full">
