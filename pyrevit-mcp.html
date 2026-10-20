@@ -153,6 +153,12 @@ img { max-width: 100%; display: block; }
 .stack-overview::before { content:""; position:absolute; inset:0; background-image: var(--pattern-dots); background-size: var(--pattern-dots-size); opacity: 0.6; pointer-events: none; }
 .stack-overview__inner { position: relative; z-index: 1; }
 .stack-overview__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; }
+.stack-cta { margin-top: 32px; max-width: 980px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; background: rgba(255,255,255,0.06); border-left: 4px solid var(--bas-teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 20px 24px; }
+.stack-cta__label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bas-teal); font-weight: 600; margin-bottom: 4px; }
+.stack-cta__text { margin: 0; color: #fff; }
+.stack-cta__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.stack-cta__link { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.stack-cta__link:hover { color: var(--bas-teal); }
 .stack-overview__plus {
   position: absolute; left: 50%; top: 50%;
   transform: translate(-50%, -50%);
@@ -471,6 +477,16 @@ img { max-width: 100%; display: block; }
           <span class="stack-card__role-label">Best for</span>
           <span class="stack-card__role-val">One-off audits, conditional logic, queries</span>
         </div>
+      </div>
+    </div>
+    <div class="stack-cta">
+      <div>
+        <div class="stack-cta__label">Founding pilot</div>
+        <p class="stack-cta__text">30 days free, full access, onboarding included.</p>
+      </div>
+      <div class="stack-cta__actions">
+        <a href="pricing.html#get-in-touch" class="btn btn--teal">Apply for the pilot <svg class="ic" style="width:14px;height:14px"><use href="#i-arrow-right"/></svg></a>
+        <a href="pricing.html" class="stack-cta__link">See pricing</a>
       </div>
     </div>
   </div>
