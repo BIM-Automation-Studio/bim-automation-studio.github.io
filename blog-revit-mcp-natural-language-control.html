@@ -675,6 +675,11 @@ img { max-width: 100%; display: block; }
         <p>Revit MCP (Model Context Protocol) is a system that connects Revit to Claude, an AI assistant, so you can give instructions in plain English and have them executed directly inside your model. Instead of clicking through menus or navigating Revit's interface to track down what you need, you type something like "find all rooms missing a department parameter" or "set the fire rating on every door in Phase 2 to 90 minutes" and it happens.</p>
         <p>MCP is an open protocol developed by Anthropic that allows AI models to connect to external tools and data sources. The Revit implementation I built creates a live bridge between Claude Desktop and a running Revit session, giving the AI the ability to read from and write to your model in real time.</p>
 
+        <h2 id="how-to-connect">How do you connect Claude to Revit?</h2>
+        <p>You need three pieces: Claude Desktop, a Revit MCP server, and a supported version of Revit running with your project open. Claude Desktop is where you type. The MCP server sits between Claude and Revit, turns your request into actions in the model, and sends the results back. Revit can stay minimized while it works.</p>
+        <p>Which server you can use depends on your Revit version. Autodesk's own Revit MCP is a Tech Preview for Revit 2027 only (<a href="blog-revit-mcp-not-working-claude.html">here's what to check if it isn't working</a>). The version I build runs on Revit 2024 and later, has been in production for over a year, and is set up around your firm's standards.</p>
+        <p>Each person using it needs their own Claude account, billed by Anthropic, and for daily production use you should plan on a paid Claude plan. You don't configure anything yourself: I handle the server setup, the Claude Desktop configuration, and end-to-end testing during onboarding. Your .rvt file never leaves your machine. Only the results of each query go to Claude (details in our <a href="privacy-policy.html#ai-processing">privacy policy</a>).</p>
+
         <h2 id="what-can-you-do">What can you do with natural language Revit control?</h2>
         <p>The short answer: anything that involves reading elements, filtering by criteria, or updating parameters at scale. Here are some real examples of what you can ask:</p>
         <ul>
@@ -733,6 +738,7 @@ img { max-width: 100%; display: block; }
           <div class="toc__label">On this page</div>
           <ol class="toc__list" id="toc-list">
             <li><a href="#what-is-mcp">What is Revit MCP?</a></li>
+            <li><a href="#how-to-connect">How to connect Claude</a></li>
             <li><a href="#what-can-you-do">What you can do</a></li>
             <li><a href="#vs-pyrevit">MCP vs. pyRevit</a></li>
             <li><a href="#who-its-for">Who it's built for</a></li>
