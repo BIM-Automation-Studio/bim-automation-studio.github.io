@@ -584,7 +584,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
 
         <ul class="flist">
           <li>Bulk parameter updates on 100+ elements</li>
-          <li>Auto-relabeling split members</li>
+          <li>Bulk renaming and renumbering after a design change</li>
           <li>Room data sync from CSV</li>
           <li>BIM standards compliance audits</li>
           <li>Intelligent view management</li>
@@ -611,7 +611,7 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
           <div class="product__icon"><svg class="ic" style="stroke:currentColor;fill:none;stroke-width:1.75"><use href="#i-bot"/></svg></div>
           <h3 class="product__title">MCP AI Tools</h3>
         </div>
-        <p class="product__lede">Plain-English Revit control through Claude Desktop. Background queries, conditional logic.</p>
+        <p class="product__lede">Your firm's tools, run from plain-English requests in Claude Desktop. Background queries, conditional logic.</p>
 
         <div class="price">
           <span class="price__amount">$50</span>
@@ -620,9 +620,9 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
         <div class="price__qual">Every tool set up or built for your firm is included · onboarding fee scales by team size · each user needs their own Claude account (billed by Anthropic)</div>
 
         <ul class="flist">
-          <li>Conversational queries across the whole model</li>
-          <li>Conditional element operations</li>
-          <li>Real-time problem solving in plain English</li>
+          <li>Tools built around your parameters, families, and naming rules</li>
+          <li>Specific, tested tools that Claude calls by name, so it isn't writing new code in your model</li>
+          <li>Conditional queries and bulk updates across the model</li>
           <li>Excel and CSV data integration</li>
           <li>Runs in background, Revit never freezes</li>
           <li>No per-tool monthly fees</li>
@@ -889,6 +889,12 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
         <summary><span class="faq-item__num">Q · 09</span><span class="faq-item__q">What if I need a tool you haven't built yet?</span><span class="faq-item__icon"></span></summary>
         <div class="faq-item__body">
           <p>I'll build it. The tools listed on this page are examples, not a fixed menu. Your seat price covers every tool set up or built for your firm, with no per-tool monthly fees. New tools are billed once at $150/hour, with a not-to-exceed price agreed after a short scope review, so the bill can't go over the quote without your approval. There's a 2-hour minimum per build. Most new pyRevit buttons come in between $300 and $1,750, and most new MCP tools between $500 and $2,200, depending on complexity. Build fees aren't affected by volume or bundle discounts.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-item__num">Q · 10</span><span class="faq-item__q">pyRevit has a free MCP server now. Why pay for this?</span><span class="faq-item__icon"></span></summary>
+        <div class="faq-item__body">
+          <p>pyRevit 7 includes a free MCP server, and it's a good way to experiment with Claude in Revit. It works by having Claude write new Python for each request, which you approve before anything changes. My MCP server works differently. Claude calls specific tools that I've built and tested around your firm's parameters, families, and naming rules, so the same request runs the same tool every time. It works on Revit 2024 and later, setup and support are included, and new tools get built to your workflow when you need them. If your team is happy with the free server, the pyRevit buttons work fine on their own.</p>
         </div>
       </details>
     </div>
