@@ -449,7 +449,7 @@ img { max-width: 100%; display: block; }
 .form-done .form-done__note:last-child { margin: 0; }
 .form-done__note a { color: var(--bas-blue); }
 .mid-cta .form-done--dark {
-  text-align: center; max-width: 560px; margin: 0 auto; padding: 26px 24px;
+  text-align: center; max-width: 560px; width: calc(100% - 32px); margin: 0 auto; padding: 26px 24px;
   background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md);
 }
 .mid-cta .form-done--dark .form-done__title { color: #fff; }
@@ -458,6 +458,17 @@ img { max-width: 100%; display: block; }
 .mid-cta .form-done--dark .form-done__note { color: rgba(255,255,255,0.6); margin: 0 0 8px; }
 .mid-cta .form-done--dark .form-done__note:last-child { margin: 0; }
 .mid-cta .form-done--dark .form-done__note a { color: #fff; }
+.form-done__addr { color: var(--bas-navy); font-weight: 600; user-select: all; }
+.form-done__copyline { white-space: nowrap; }
+.form-done__copy {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; margin-left: 8px;
+  padding: 3px 10px; border: 1px solid var(--bas-line-strong); border-radius: var(--radius-sm);
+  background: #fff; color: var(--bas-navy); cursor: pointer; vertical-align: 1px;
+}
+.form-done__copy:hover { border-color: var(--bas-blue); color: var(--bas-blue); }
+.mid-cta .form-done--dark .form-done__addr { color: #fff; }
+.mid-cta .form-done--dark .form-done__copy { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); color: #fff; }
+.mid-cta .form-done--dark .form-done__copy:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.65); }
 
 /* ── FLOATING CTA ── */
 .floating-cta {
@@ -1099,13 +1110,36 @@ details summary:focus-visible { outline: 2px solid var(--bas-blue); outline-offs
     box.appendChild(el('p', 'form-done__note', 'This opens your email app with a short note ready to send. Starting the thread from your inbox helps my reply get through.'));
 
     var w = el('p', 'form-done__note');
-    w.appendChild(document.createTextNode('Using webmail? Send a quick note to '));
-    var a = el('a', '', ADDR);
-    a.href = 'mailto:' + ADDR;
-    w.appendChild(a);
-    w.appendChild(document.createTextNode('.'));
+    w.appendChild(document.createTextNode('Using webmail? Copy my address: '));
+    var line = el('span', 'form-done__copyline');
+    var addr = el('span', 'form-done__addr', ADDR);
+    line.appendChild(addr);
+    var copy = el('button', 'form-done__copy', 'Copy');
+    copy.type = 'button';
+    copy.addEventListener('click', function () {
+      function done() {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = 'Copy'; }, 2500);
+        if (window.gtag) gtag('event', 'email_copy', { event_category: 'contact', event_label: 'pricing_form_done' });
+      }
+      function manual() {
+        // Older browsers: select the address and copy it.
+        var r = document.createRange(); r.selectNodeContents(addr);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        try { document.execCommand('copy'); } catch (e) {}
+        done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ADDR).then(done, manual);
+      } else { manual(); }
+    });
+    line.appendChild(copy);
+    w.appendChild(line);
     box.appendChild(w);
 
+    // Hide the label, heading and intro above the form; they talk about filling it out.
+    var prev = form.previousElementSibling;
+    while (prev) { prev.style.display = 'none'; prev = prev.previousElementSibling; }
     form.parentNode.replaceChild(box, form);
     try { box.focus({ preventScroll: true }); } catch (e) { box.focus(); }
     box.scrollIntoView({ behavior: 'smooth', block: 'center' });
